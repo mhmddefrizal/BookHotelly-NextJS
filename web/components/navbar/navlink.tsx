@@ -6,7 +6,9 @@ const Navlink = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <button className="inline-flex items-center p-2 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100"></button>
+      <button onClick={() => setOpen(!open)} className="inline-flex items-center p-2 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100">
+        {!open ? <IoMenu className="size-8" /> : <IoClose className="size-8" />}
+      </button>
     </>
   );
 };
