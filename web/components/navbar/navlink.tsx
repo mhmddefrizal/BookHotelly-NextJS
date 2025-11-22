@@ -1,4 +1,4 @@
-import React from "react";
+import { IoClose, IoMenu } from "react-icons/io5";
 
 const Navlink = () => {
   return (
