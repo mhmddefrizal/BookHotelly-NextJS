@@ -1,11 +1,14 @@
 import React from 'react'
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900">
         <div className="maxwith-screen-xl mx-auto px-4 w-full py-10 md:py-16">
             <div className="grid md:grid-cols-3 gap-7">
-                <div></div>
+                <div>
+                </div>
                 <div></div>
                 <div></div>
             </div>
