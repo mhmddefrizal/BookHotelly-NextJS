@@ -12,9 +12,16 @@ const Footer = () => {
                         <Image src="/logo.png" width={96} height={36} alt="logo"/>
                     </Link>
                     <p className="text-lime-400">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur a culpa nostrum, doloremque debitis porro.
                     </p>
                 </div>
-                <div></div>
+                <div>
+                    <div className="flex gap-20">
+                        <div className="flex-1 md:flex-none">
+                            <h4 className="mb-8 text-xl font-semibold text-white">Link</h4>
+                        </div>
+                    </div>
+                </div>
                 <div></div>
             </div>
         </div>
