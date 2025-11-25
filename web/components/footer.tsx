@@ -11,6 +11,8 @@ const Footer = () => {
                     <Link href="/" className="mb-10 block">
                         <Image src="/logo.png" width={96} height={36} alt="logo"/>
                     </Link>
+                    <p className="text-lime-400">
+                    </p>
                 </div>
                 <div></div>
                 <div></div>
