@@ -33,26 +33,26 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="flex-1 md:flex-none">
-                <h4 className="mb-8 text-xl font-semibold text-white">Legal</h4>
+                <h4 className="mb-8 text-xl font-semibold text-white">Informasi Hukum</h4>
                 <ul className="list-item space-y-5 text-gray-400">
                   <li>
-                    <Link href="#">Legal</Link>
+                    <Link href="#">Informasi Hukum</Link>
                   </li>
                   <li>
-                    <Link href="#">Term & Condition</Link>
+                    <Link href="#">Syarat & Ketentuan</Link>
                   </li>
                   <li>
-                    <Link href="#">Payment Method</Link>
+                    <Link href="#">Metode Pembayaran</Link>
                   </li>
                   <li>
-                    <Link href="#">Privacy Policy</Link>
+                    <Link href="#">Kebijakan Privasi</Link>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <div>
-            <h4>Newsletter</h4>
+            <h4 className="mb-8 text-xl font-semibold text-white">Info Terbaru</h4>
           </div>
         </div>
       </div>
