@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900">
+    <footer className="bg-gray-500">
       <div className="maxwith-screen-xl mx-auto px-4 w-full py-10 md:py-16">
         <div className="grid md:grid-cols-3 gap-7">
           <div>
@@ -56,7 +56,7 @@ const Footer = () => {
             <p className="text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
             <form action="" className="mt-5">
               <div className="mb-5">
-                <input type="text" name="email" className="w-full p-3 rounded-sm bg-white" placeholder="email@gmail.com" />
+                <input type="text" name="email" className="w-full p-3 rounded-sm text-amber-500 bg-white" placeholder="email@gmail.com" />
               </div>
               <button className="bg-blue-900 p-3 font-bold text-white w-full text-center rounded-sm hover:bg-blue-500">Subscribe</button>
             </form>
@@ -64,8 +64,8 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className="maxwith-screen-xl mx-auto px-4 border-t border-gray-800 py-8 txet-center
-        text-base text-gray-600"
+        className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 py-8 text-center
+        text-base text-gray-500"
       >
         &copy; Copyright 2025 | Booking Hotel | Tigo Nago
       </div>
