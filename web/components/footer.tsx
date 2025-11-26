@@ -42,10 +42,10 @@ const Footer = () => {
                     <Link href="#">Term & Condition</Link>
                   </li>
                   <li>
-                    <Link href="/kamar">Payment Method</Link>
+                    <Link href="#">Payment Method</Link>
                   </li>
                   <li>
-                    <Link href="/kontak">Privacy Policy</Link>
+                    <Link href="#">Privacy Policy</Link>
                   </li>
                 </ul>
               </div>
