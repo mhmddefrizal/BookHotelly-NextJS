@@ -11,7 +11,7 @@ const Footer = () => {
             <Link href="/" className="mb-10 block">
               <Image src="/logo.png" width={96} height={36} alt="logo" />
             </Link>
-            <p className="text-lime-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur a culpa nostrum, doloremque debitis porro.</p>
+            <p className="text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur a culpa nostrum, doloremque debitis porro.</p>
           </div>
           <div>
             <div className="flex gap-20">
@@ -53,6 +53,13 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="mb-8 text-xl font-semibold text-white">Info Terbaru</h4>
+            <p className="text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+            <form action="" className="mt-5">
+              <div className="mb-5">
+                <input type="text" name="email" className="w-full p-3 rounded-sm bg-white" placeholder="email@gmail.com" />
+              </div>
+              <button className="bg-blue-900 p-3 font-bold text-white w-full text-center rounded-sm hover:bg-blue-500">Subscribe</button>
+            </form>
           </div>
         </div>
       </div>
