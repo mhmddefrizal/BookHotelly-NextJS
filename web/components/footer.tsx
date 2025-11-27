@@ -4,20 +4,20 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-500">
+    <footer className="bg-gray-400">
       <div className="maxwith-screen-xl mx-auto px-4 w-full py-10 md:py-16">
         <div className="grid md:grid-cols-3 gap-7">
           <div>
-            <Link href="/" className="mb-10 block">
-              <Image src="/logo.png" width={96} height={36} alt="logo" />
+            <Link href="/" className="block">
+              <Image src="/logo.png" width={100} height={40} alt="logo" />
             </Link>
-            <p className="text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur a culpa nostrum, doloremque debitis porro.</p>
+            <p className="text-gray-700">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur a culpa nostrum, doloremque debitis porro.</p>
           </div>
           <div>
             <div className="flex gap-20">
               <div className="flex-1 md:flex-none">
-                <h4 className="mb-8 text-xl font-semibold text-white">Links</h4>
-                <ul className="list-item space-y-5 text-gray-400">
+                <h4 className="mb-8 text-xl font-semibold text-blue-900">Tautan</h4>
+                <ul className="list-item space-y-5 text-gray-700">
                   <li>
                     <Link href="/">Beranda</Link>
                   </li>
@@ -25,7 +25,7 @@ const Footer = () => {
                     <Link href="/tentang">Tentang Kami</Link>
                   </li>
                   <li>
-                    <Link href="/kamar">Kamar</Link>
+                    <Link href="/kamar">Daftar Kamar</Link>
                   </li>
                   <li>
                     <Link href="/kontak">Kontak Kami</Link>
@@ -33,8 +33,8 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="flex-1 md:flex-none">
-                <h4 className="mb-8 text-xl font-semibold text-white">Informasi Hukum</h4>
-                <ul className="list-item space-y-5 text-gray-400">
+                <h4 className="mb-8 text-xl font-semibold text-blue-900">Informasi Hukum</h4>
+                <ul className="list-item space-y-5 text-gray-700">
                   <li>
                     <Link href="#">Informasi Hukum</Link>
                   </li>
@@ -52,20 +52,20 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="mb-8 text-xl font-semibold text-white">Info Terbaru</h4>
-            <p className="text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+            <h4 className="mb-8 text-xl font-semibold text-blue-900">Buletin</h4>
+            <p className="text-gray-700">Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
             <form action="" className="mt-5">
               <div className="mb-5">
-                <input type="text" name="email" className="w-full p-3 rounded-sm text-amber-500 bg-white" placeholder="email@gmail.com" />
+                <input type="text" name="email" className="w-full p-3 rounded-sm text-gray-700 bg-white" placeholder="email@gmail.com" />
               </div>
-              <button className="bg-blue-900 p-3 font-bold text-white w-full text-center rounded-sm hover:bg-blue-500">Subscribe</button>
+              <button className="bg-blue-900 p-3 font-bold text-white w-full text-center rounded-sm hover:bg-blue-500">Berlangganan</button>
             </form>
           </div>
         </div>
       </div>
       <div
         className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 py-8 text-center
-        text-base text-gray-500"
+        text-base text-gray-700"
       >
         &copy; Copyright 2025 | Booking Hotel | Tigo Nago
       </div>
