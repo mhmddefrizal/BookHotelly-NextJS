@@ -10,6 +10,7 @@ const AboutPage = () => {
             <Image src='/about-image.jpg' alt="tentang kami" width={650} height={579}/>
             <div>
                 <h1 className="text-5xl font-semibold text-gray-900 mb-4">Siapa Kami?</h1>
+                <p className="text-gray-700 py-5">Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks</p>
             </div>
         </div>
       </div>
