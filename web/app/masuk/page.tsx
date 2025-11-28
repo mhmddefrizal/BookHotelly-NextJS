@@ -1,4 +1,4 @@
-import React from 'react'
+import LoginButton from "@/components/login-button"
 
 const SignInPage = () => {
   return (
@@ -6,6 +6,9 @@ const SignInPage = () => {
         <div className="bg-white w-96 mx-auto rounded-sm shadow p-8">
             <h1 className='text-4xl font-bold mb-1'>Masuk</h1>
             <p className='font-medium mb-5 text-gray-400'>Masuk menggunakan akun kamu</p>
+            <div className="py-4 text-center">
+                <LoginButton />
+            </div>
         </div>
     </div>
   )
