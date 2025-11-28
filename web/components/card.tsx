@@ -1,5 +1,6 @@
 import Image from "next/image";
-import link from "next/link";
+import Link from "next/link";
+import {IoPeopleOutline} from "react-icons/io5"; 
 
 function Card() {
   return (
@@ -10,7 +11,7 @@ function Card() {
       </div>
       <div className="p-8">
         <h4 className="text-2xl font-medium">
-            <link href="#" className="hover:text-gray-800 transition duration-100" >Kamar Mewah</link>
+            <Link href="#" className="hover:text-gray-800 transition duration-100" >Kamar Mewah</Link>
         </h4>
         <h4 className="text-2xl mb-7 ">
             <span className="font-semibold text-gray-500 ">Rp. 8500000</span>
