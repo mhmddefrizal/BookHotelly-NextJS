@@ -1,5 +1,6 @@
 import Image from "next/image"
 import HeaderSection from "@/components/header-section"
+import { IoEyeOutline, IoLocateOutline } from "react-icons/io5"
 
 const AboutPage = () => {
   return (
@@ -11,7 +12,13 @@ const AboutPage = () => {
             <div>
                 <h1 className="text-5xl font-semibold text-gray-900 mb-4">Siapa Kami?</h1>
                 <p className="text-gray-700 py-5">Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks Masukkan Teks</p>
-                <ul className="list-item space-y-6 pt-8 "></ul>
+                <ul className="list-item space-y-6 pt-8 ">
+                    <li className="flex gap-5">
+                        <div className="flex-none mt-1">
+                            <IoEyeOutline className="size-7 text-gray-900" />
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
       </div>
