@@ -12,6 +12,10 @@ const HeaderSection = ({
     <header className="relative h-60 text-white overflow-hidden">
         <div className="absolute inset-0">
             <Image src="/hero.jpg" alt='Header Image' fill className='object-cover object-center w-full h-full'/>
+            <div className="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        <div className="relative flex flex-col justify-center items-center h-60  text-center pt-14">
+            <h1>{title}</h1>
         </div>
 
     </header>
