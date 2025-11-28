@@ -8,7 +8,7 @@ function Card() {
         object-cover rounded-t-sm"/>
       </div>
       <div className="p-8">
-        
+        <h4 className="text-2xl font-medium"></h4>
       </div>
     </div>
   );
