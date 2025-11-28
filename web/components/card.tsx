@@ -14,6 +14,7 @@ function Card() {
         </h4>
         <h4 className="text-2xl mb-7 ">
             <span className="font-semibold text-gray-500 ">Rp. 8500000</span>
+            <span>/malam</span>
         </h4>
       </div>
     </div>
