@@ -18,7 +18,12 @@ function Card() {
             <span className="text-gray-400 text-sm">/malam</span>
         </h4>
         <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2"></div>
+            <div className="flex items-center space-x-2">
+              <IoPeopleOutline>
+                <span>2 Tamu</span>
+              </IoPeopleOutline>
+            </div>
+            <Link href="#" className="px-6 py-2.5 md:px-10 md:py-3 font-semibold bg-orange-300 rounded-sm hover:bg-orange-500 transition duration-100">Pesan Sekarang!</Link>
         </div>
       </div>
     </div>
