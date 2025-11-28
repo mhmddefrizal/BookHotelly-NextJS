@@ -1,9 +1,11 @@
 import React from 'react'
 
-function card() {
+function Card() {
   return (
-    <div>card</div>
+    <div className="bg-white shadow-lg rounded-sm transition duration-100 hover:shadow-sm">
+    
+    </div>
   )
 }
 
-export default card
+export default Card
