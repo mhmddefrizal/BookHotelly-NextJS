@@ -18,8 +18,17 @@ const AboutPage = () => {
                             <IoEyeOutline className="size-7 text-gray-900" />
                         </div>
                         <div className="flex-1">
-                            <h4 className="text-lg font-semibold mb-1">Visi Kami:</h4>
+                            <h4 className="text-lg font-semibold mb-1">Visi :</h4>
                             <p className="text-gray-600">Kami sangat berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan kami. Meskipun permintaannya aneh-aneh</p>
+                        </div>
+                    </li>
+                    <li className="flex gap-5">
+                        <div className="flex-none mt-1">
+                            <IoLocateOutline className="size-7 text-gray-900" />
+                        </div>
+                        <div className="flex-1">
+                            <h4 className="text-lg font-semibold mb-1">Misi :</h4>
+                            <p className="text-gray-600">Tidak Dapat Bicara Sekarang, WhatsApp Saja</p>
                         </div>
                     </li>
                 </ul>
