@@ -8,6 +8,9 @@ const AboutPage = () => {
       <div className="max-w-7xl mx-auto py-20 px-4">
         <div className="grid md:grid-cols-2 gap-8">
             <Image src='/about-image.jpg' alt="tentang kami" width={650} height={579}/>
+            <div>
+                <h1 className="text-5xl font-semibold text-gray-900 mb-4">Siapa Kami?</h1>
+            </div>
         </div>
       </div>
     </div>
