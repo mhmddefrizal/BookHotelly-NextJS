@@ -12,6 +12,7 @@ function Card() {
         <h4 className="text-2xl font-medium">
             <link href="#" className="hover:text-gray-800 transition duration-100" >Kamar Mewah</link>
         </h4>
+        <h4 className="text-2xl mb-7 "></h4>
       </div>
     </div>
   );
