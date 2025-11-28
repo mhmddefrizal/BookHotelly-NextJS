@@ -1,4 +1,10 @@
+import { Metadata } from "next";
 import LoginButton from "@/components/login-button"
+
+export const metadata: Metadata = {
+    title: "Masuk",
+    
+}
 
 const SignInPage = () => {
   return (
@@ -14,4 +20,4 @@ const SignInPage = () => {
   )
 }
 
-export default SignInPage
+export default SignInPage;
