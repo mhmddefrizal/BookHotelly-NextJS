@@ -7,6 +7,9 @@ function Card() {
         <Image src="/hero.jpg" width={345} height={240} alt="room image" className="w-full h-full
         object-cover rounded-t-sm"/>
       </div>
+      <div className="p-8">
+        
+      </div>
     </div>
   );
 }
