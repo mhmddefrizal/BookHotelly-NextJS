@@ -16,7 +16,9 @@ function Card() {
             <span className="font-semibold text-gray-500 ">Rp. 8500000</span>
             <span className="text-gray-400 text-sm">/malam</span>
         </h4>
-        <div className="flex items-center justify-between"></div>
+        <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2"></div>
+        </div>
       </div>
     </div>
   );
