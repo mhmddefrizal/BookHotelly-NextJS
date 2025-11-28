@@ -15,7 +15,7 @@ const HeaderSection = ({
             <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
         <div className="relative flex flex-col justify-center items-center h-60  text-center pt-14">
-            <h1>{title}</h1>
+            <h1 className='text-5xl font-bold leading-tight capitalize'>{title}</h1>
         </div>
 
     </header>
