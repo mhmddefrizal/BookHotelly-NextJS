@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import LoginButton from "@/components/login-button";
+import { LoginGoogleButton } from "@/components/login-button";
 
 export const metadata: Metadata = {
   title: "Masuk",
@@ -12,7 +12,7 @@ const SignInPage = () => {
         <h1 className="text-4xl font-bold mb-1">Masuk</h1>
         <p className="font-medium mb-5 text-gray-500">Masuk menggunakan akun kamu</p>
         <div className="py-4 text-center">
-          <LoginButton />
+          <LoginGoogleButton />
         </div>
       </div>
     </div>
