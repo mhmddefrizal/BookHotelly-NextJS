@@ -41,6 +41,15 @@ model RoomAmenities{
   Amenities Amenities @relation(fields: [amenitiesId], references: [id], onDelete: Cascade)
 }
 
+model Reservation {
+  id String @id @default(cuid())
+  startDate DateTime
+  endDate DateTime
+  price Int
+  userId String
+  User User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 model User {
   id            String          @id @default(cuid())
   name          String?
