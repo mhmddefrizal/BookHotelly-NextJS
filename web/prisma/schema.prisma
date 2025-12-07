@@ -23,6 +23,7 @@ model Room{
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   RoomAmenities RoomAmenities[]
+  Reservation Reservation[]
 }
 
 model Amenities {
@@ -48,6 +49,10 @@ model Reservation {
   price Int
   userId String
   User User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  roomId String
+  Room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model User {
@@ -59,7 +64,7 @@ model User {
   role          String          @default("user")
   phone         String?
   accounts      Account[]
- 
+  Reservation Reservation[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
