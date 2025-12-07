@@ -53,6 +53,7 @@ model Reservation {
   Room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Payment Payment?
 }
 
 model Payment {
