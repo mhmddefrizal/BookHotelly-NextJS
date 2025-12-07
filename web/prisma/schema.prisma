@@ -30,12 +30,15 @@ model Amenities {
   name String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  RoomAmenities RoomAmenities[]
 }
 
 model RoomAmenities{
   id String @id @default(cuid())
   roomId String
   Room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  amenitiesId String
+  Amenities Amenities @relation(fields: [amenitiesId], references: [id], onDelete: Cascade)
 }
 
 model User {
