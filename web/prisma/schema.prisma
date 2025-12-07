@@ -55,6 +55,17 @@ model Reservation {
   updatedAt DateTime @updatedAt
 }
 
+model Payment {
+  id String @id @default(cuid())
+  method String?
+  amount Int
+  status String @default("unpaid")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  reservationId String @unique
+  Reservation Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+}
+
 model User {
   id            String          @id @default(cuid())
   name          String?
