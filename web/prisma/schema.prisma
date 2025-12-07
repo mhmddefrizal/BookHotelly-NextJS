@@ -31,6 +31,12 @@ model Amenities {
   updatedAt DateTime @updatedAt
 }
 
+model RoomAmenities{
+  id String @id @default(cuid())
+  roomId String
+  Room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)
+}
+
 model User {
   id            String          @id @default(cuid())
   name          String?
