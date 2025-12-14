@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,13 +17,18 @@ export const metadata: Metadata = {
   description: "Booking Hotel Online",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // buat sesi pengguna tersedia di seluruh aplikasi
+  const session = await auth();
+
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
-        <Navbar />
-        <main className="bg-gray-50 min-h-screen">{children}</main>
-        <Footer />
+        <SessionProvider session={session}>
+          <Navbar />
+          <main className="bg-gray-50 min-h-screen">{children}</main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
