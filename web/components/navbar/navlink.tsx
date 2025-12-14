@@ -3,9 +3,14 @@ import { useState } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
 import clsx from "clsx";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 
 const Navlink = () => {
+  // buat state untuk mengelola menu navigasi pada perangkat mobile
   const [open, setOpen] = useState(false);
+
+  // buat session pengguna
+  const { data: session } = useSession();
   return (
     <>
       <button onClick={() => setOpen(!open)} className="inline-flex items-center p-2 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100">
@@ -38,21 +43,26 @@ const Navlink = () => {
               Kontak
             </Link>
           </li>
-          <li>
-            <Link href="/reservasi-saya" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
-              Reservasi Saya
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/dashboard" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
-              Dasbor
-            </Link>
-          </li>
-          <li>
-            <Link href="/admin/kamar" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
-              Kelola Kamar
-            </Link>
-          </li>
+          {session && (
+            <>
+              <li>
+                <Link href="/reservasi-saya" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
+                  Reservasi Saya
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin/dashboard" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
+                  Dasbor
+                </Link>
+              </li>
+              <li>
+                <Link href="/admin/kamar" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
+                  Kelola Kamar
+                </Link>
+              </li>
+            </>
+          )}
+
           <li className="pt-2 md:pt-0">
             <Link href="/masuk" className="py-2.5 px-6 bg-blue-900 text-white hover:bg-blue-500 rounded-sm">
               Masuk
