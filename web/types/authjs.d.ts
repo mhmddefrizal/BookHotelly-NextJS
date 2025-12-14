@@ -12,3 +12,11 @@ declare module "next-auth" {
     role: string;
   }
 }
+
+// declare module "next-auth/jwt" untuk menambahkan properti khusus ke token JWT
+declare module "next-auth/jwt" {
+  interface JWT {
+    sub: string;
+    role: string;
+  }
+}
