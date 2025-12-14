@@ -24,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <body className={`${poppins.variable} antialiased`}>
+        {/* SessionProvider digunakan untuk menyediakan sesi pengguna */}
         <SessionProvider session={session}>
           <Navbar />
           <main className="bg-gray-50 min-h-screen">{children}</main>
