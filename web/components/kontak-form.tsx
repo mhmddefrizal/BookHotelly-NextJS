@@ -84,6 +84,7 @@ const kontakForm = () => {
                         </div>
                     </div>
                 </div>
+                <button type='submit' className='px-10 py-4 text-center font-semibold text-white w-full bg-orange-400 rounded-sm hover:bg-orange-500 cursor-pointer'></button>
             </form>
         </div>
     )
