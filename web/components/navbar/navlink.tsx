@@ -4,6 +4,7 @@ import { IoClose, IoMenu } from "react-icons/io5";
 import clsx from "clsx";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 
 const Navlink = () => {
   // buat state untuk mengelola menu navigasi pada perangkat mobile
@@ -13,6 +14,17 @@ const Navlink = () => {
   const { data: session } = useSession();
   return (
     <>
+      {session?.user ? (
+        <div className="flex items-center justify-end md:order-2">
+          <div className="hidden text-sm bg-gray-50 border rounded-full md:me-0 md:block focus:ring-4 focus:ring-gray-300">
+            <Image src={session.user.image || "/avatar.svg"} width={64} height={64} alt="avatar"/>
+          </div>
+          <div className="flex item-center">
+            <button onClick={()=>signOut()} className="md:block hidden py-2 px-4 bg-gray-50 text-gray-700 hover:bg-gray-100 rounded-sm cursor-pointer">Sign Out</button>
+          </div>
+        </div>
+
+      ):null}
       <button onClick={() => setOpen(!open)} className="inline-flex items-center p-2 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100">
         {!open ? <IoMenu className="size-8" /> : <IoClose className="size-8" />}
       </button>
