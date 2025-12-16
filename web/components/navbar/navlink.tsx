@@ -66,12 +66,20 @@ const Navlink = () => {
               )}
             </>
           )}
-
+          {session ? (
+            <li className="pt-2 md:pt-0">
+            <button onClick={()=> signOut()}
+            className="md:hidden py-2.5 px-6 bg-white-900 text-black hover:bg-cyan-500 rounded-sm cursor-pointer">
+              Keluar
+            </button>
+          </li>
+          ):(
           <li className="pt-2 md:pt-0">
             <Link href="/masuk" className="py-2.5 px-6 bg-blue-900 text-white hover:bg-blue-500 rounded-sm">
               Masuk
             </Link>
           </li>
+          )}
         </ul>
       </div>
     </>
