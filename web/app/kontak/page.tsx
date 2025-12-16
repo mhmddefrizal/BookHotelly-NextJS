@@ -45,6 +45,7 @@ const HalamanKontak = () => {
                         </li>
                     </ul>
                 </div>
+                {/* Kontak formulir */}
             </div>
         </div>
     )
