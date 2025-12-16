@@ -17,7 +17,7 @@ const Navlink = () => {
       {session?.user ? (
         <div className="flex items-center justify-end md:order-2">
           <div className="hidden text-sm bg-gray-50 border rounded-full md:me-0 md:block focus:ring-4 focus:ring-gray-300">
-            <Image src={session.user.image || "/avatar.svg"} width={64} height={64} alt="avatar"/>
+            <Image className="size-8 rounded-full" src={session.user.image || "/avatar.svg"} width={64} height={64} alt="avatar"/>
           </div>
           <div className="flex item-center">
             <button onClick={()=>signOut()} className="md:block hidden py-2 px-4 bg-gray-50 text-gray-700 hover:bg-gray-100 rounded-sm cursor-pointer">Sign Out</button>
