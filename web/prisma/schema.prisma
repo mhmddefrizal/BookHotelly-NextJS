@@ -100,3 +100,7 @@ model Account {
  
   @@id([provider, providerAccountId])
 }
+
+model Contact {
+  id String @id @default(cuid())
+}
