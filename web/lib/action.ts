@@ -10,4 +10,6 @@ export const ContactMessage = async (formData: FormData) => {
             error: validatedFields.error.flatten().fieldErrors
         };
     }
+    const {name, email, subject, message} = validatedFields.data;
 };
+
