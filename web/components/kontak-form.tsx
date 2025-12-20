@@ -1,17 +1,23 @@
 "use client";
 import React from "react";
 import { useActionState } from "react";
+import { ContactMessage } from "@/lib/action";
 
 const KontakForm = () => {
+  const [state, FromAction] = useActionState(ContactMessage, null);
   return (
     <div className="bg-white p-8 rounded-sm shadow-sm">
-      <form action="">
+      {state?.message ? (
+        <div className="p-4 mb text-sm text-gray-900 rounded-lg bg-amber-600" role="alert"> 
+        </div>
+      ):null}
+      <form action={FromAction}>
         <div className="grid md:grid-cols-2 gap-7 mt-6">
           <div>
             <input type="text" name="name" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Name" />
 
             <div aria-live="polite" aria-atomic="true">
-              <p className="text-sm text-red-500 mt-2">message</p>
+              <p className="text-sm text-red-500 mt-2">{state?.error?.name}</p>
             </div>
           </div>
         </div>
@@ -20,7 +26,7 @@ const KontakForm = () => {
             <input type="email" name="email" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Name" />
 
             <div aria-live="polite" aria-atomic="true">
-              <p className="text-sm text-red-500 mt-2">gregours@example.com</p>
+              <p className="text-sm text-red-500 mt-2">{state?.error?.email}</p>
             </div>
           </div>
         </div>
@@ -29,7 +35,7 @@ const KontakForm = () => {
             <input type="text" name="subject" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Name" />
 
             <div aria-live="polite" aria-atomic="true">
-              <p className="text-sm text-red-500 mt-2">subjek</p>
+              <p className="text-sm text-red-500 mt-2">{state?.error?.subject}</p>
             </div>
           </div>
         </div>
@@ -38,7 +44,7 @@ const KontakForm = () => {
             <input type="text" name="Subject" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Subject*" />
 
             <div aria-live="polite" aria-atomic="true">
-              <p className="text-sm text-red-500 mt-2">message</p>
+              <p className="text-sm text-red-500 mt-2">{state?.error?.message}</p>
             </div>
           </div>
         </div>
