@@ -9,6 +9,7 @@ const KontakForm = () => {
     <div className="bg-white p-8 rounded-sm shadow-sm">
       {state?.message ? (
         <div className="p-4 mb text-sm text-gray-900 rounded-lg bg-amber-600" role="alert"> 
+        <div className="font-medium">{state.message}</div>
         </div>
       ):null}
       <form action={FromAction}>
