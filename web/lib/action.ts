@@ -21,7 +21,8 @@ export const ContactMessage = async (formData: FormData) => {
                 subject,
                 message
             }
-        })
+        });
+        return{message: "terima kasih telah menghubungi kami"}
     }catch (error) {
         
     }
