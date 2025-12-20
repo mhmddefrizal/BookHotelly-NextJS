@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { useActionState } from "react";
 
 const KontakForm = () => {
   return (
