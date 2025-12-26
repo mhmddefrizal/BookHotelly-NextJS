@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const HalamanCheckout = () => {
-  return (
-    <div className='py-20 mt-10'>Halaman Checkout</div>
-  )
-}
+  return <div className="py-20 mt-10">Halaman Checkout</div>;
+};
 
-export default HalamanCheckout
+export default HalamanCheckout;

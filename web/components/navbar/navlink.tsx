@@ -17,14 +17,15 @@ const Navlink = () => {
       {session?.user ? (
         <div className="flex items-center justify-end md:order-2">
           <div className="hidden text-sm bg-gray-50 border rounded-full md:me-0 md:block focus:ring-4 focus:ring-gray-300">
-            <Image className="size-8 rounded-full" src={session.user.image || "/avatar.svg"} width={64} height={64} alt="avatar"/>
+            <Image className="size-8 rounded-full" src={session.user.image || "/avatar.svg"} width={64} height={64} alt="avatar" />
           </div>
           <div className="flex item-center">
-            <button onClick={()=>signOut()} className="md:block hidden py-2 px-4 bg-gray-50 text-gray-700 hover:bg-gray-100 rounded-sm cursor-pointer">Sign Out</button>
+            <button onClick={() => signOut()} className="md:block hidden py-2 px-4 bg-gray-50 text-gray-700 hover:bg-gray-100 rounded-sm cursor-pointer">
+              Sign Out
+            </button>
           </div>
         </div>
-
-      ):null}
+      ) : null}
       <button onClick={() => setOpen(!open)} className="inline-flex items-center p-2 justify-center text-sm text-gray-500 rounded-md md:hidden hover:bg-gray-100">
         {!open ? <IoMenu className="size-8" /> : <IoClose className="size-8" />}
       </button>
@@ -58,7 +59,7 @@ const Navlink = () => {
           {session && (
             <>
               <li>
-                <Link href="/reservasi-saya" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
+                <Link href="/reservasisaya" className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0">
                   Reservasi Saya
                 </Link>
               </li>
@@ -80,17 +81,16 @@ const Navlink = () => {
           )}
           {session ? (
             <li className="pt-2 md:pt-0">
-            <button onClick={()=> signOut()}
-            className="md:hidden py-2.5 px-6 bg-red-400 text-white hover:bg-red-600 rounded-sm cursor-pointer">
-              Keluar
-            </button>
-          </li>
-          ):(
-          <li className="pt-2 md:pt-0">
-            <Link href="/masuk" className="py-2.5 px-6 bg-blue-900 text-white hover:bg-blue-500 rounded-sm">
-              Masuk
-            </Link>
-          </li>
+              <button onClick={() => signOut()} className="md:hidden py-2.5 px-6 bg-red-400 text-white hover:bg-red-600 rounded-sm cursor-pointer">
+                Keluar
+              </button>
+            </li>
+          ) : (
+            <li className="pt-2 md:pt-0">
+              <Link href="/masuk" className="py-2.5 px-6 bg-blue-900 text-white hover:bg-blue-500 rounded-sm">
+                Masuk
+              </Link>
+            </li>
           )}
         </ul>
       </div>
