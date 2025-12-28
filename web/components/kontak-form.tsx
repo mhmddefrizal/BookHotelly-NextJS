@@ -5,7 +5,8 @@ import { ContactMessage } from "@/lib/action";
 
 const KontakForm = () => {
   // buat state untuk menampung hasil dari action
-  const [state, FromAction] = useActionState(ContactMessage, null);
+  // buat state isPending untuk menandai proses pengiriman
+  const [state, FromAction, isPending] = useActionState(ContactMessage, null);
   return (
     <div className="bg-white p-8 rounded-sm shadow-sm">
       {state?.message ? (
@@ -47,8 +48,8 @@ const KontakForm = () => {
           </div>
         </div>
 
-        <button type="submit" className="px-10 py-4 text-center font-semibold text-white w-full bg-blue-600 rounded-sm hover:bg-blue-900 cursor-pointer">
-          Kirim Pesan
+        <button type="submit" className="px-10 py-4 text-center font-semibold text-white w-full bg-blue-600 rounded-sm hover:bg-blue-900 cursor-pointer" disabled={isPending}>
+          {isPending ? "Mengirim..." : "Kirim Pesan"}
         </button>
       </form>
     </div>
