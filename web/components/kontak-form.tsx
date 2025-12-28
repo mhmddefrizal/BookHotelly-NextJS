@@ -9,7 +9,7 @@ const KontakForm = () => {
   return (
     <div className="bg-white p-8 rounded-sm shadow-sm">
       {state?.message ? (
-        <div className="p-4 mb text-sm text-gray-900 rounded-lg bg-amber-600" role="alert">
+        <div className="p-4 mb text-sm text-gray-900 rounded-lg bg-blue-300" role="alert">
           <div className="font-medium">{state.message}</div>
         </div>
       ) : null}
@@ -31,7 +31,7 @@ const KontakForm = () => {
           </div>
 
           <div className="md:col-span-2">
-            <input type="text" name="subject" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Subject*" />
+            <input type="text" name="subject" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Judul*" />
 
             <div aria-live="polite" aria-atomic="true">
               <p className="text-sm text-red-500 mt-2">{state?.error?.subject}</p>

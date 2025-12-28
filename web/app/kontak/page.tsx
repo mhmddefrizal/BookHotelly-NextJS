@@ -27,7 +27,7 @@ const HalamanKontak = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-lg font-semibold mb-1">Email :</h4>
-                  <p>email-uwu@example.com</p>
+                  <p>email@example.com</p>
                 </div>
               </li>
               <li className="flex gap-5">
