@@ -9,7 +9,7 @@ const KontakForm = () => {
   return (
     <div className="bg-white p-8 rounded-sm shadow-sm">
       {state?.message ? (
-        <div className="p-4 mb text-sm text-gray-900 rounded-lg bg-blue-300" role="alert">
+        <div className="p-4 mb-4 text-sm text-gray-900 rounded-lg bg-blue-300" role="alert">
           <div className="font-medium">{state.message}</div>
         </div>
       ) : null}
