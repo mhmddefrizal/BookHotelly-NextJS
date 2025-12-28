@@ -49,7 +49,11 @@ const KontakForm = () => {
           </div>
         </div>
 
-        <button type="submit" className="px-10 py-4 text-center font-semibold text-white w-full bg-blue-600 rounded-sm hover:bg-blue-900 cursor-pointer" disabled={isPending}>
+        <button
+          type="submit"
+          className={clsx("px-10 py-4 text-center font-semibold text-white w-full bg-blue-600 rounded-sm hover:bg-blue-900 cursor-pointer", { "opacity-50 cursor-progress animate-pulse": isPending })}
+          disabled={isPending}
+        >
           {isPending ? "Mengirim..." : "Kirim Pesan"}
         </button>
       </form>
