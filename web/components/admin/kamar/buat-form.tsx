@@ -25,7 +25,11 @@ const BuatForm = () => {
         </div>
         <div className="col-span-4 bg-white p-4">
           <label htmlFor="input-file" className="flex flex-col mb-4 items-center justify-center aspect-video border-2 border-gray-300 border-dashed rounded-md cursor-pointer bg-gray-50 relative">
-            
+            <div className="flex flex-col items-center justify-center text-gray-500 pt-5 pb-6 z-10">
+              <div className="flex flex-col items-center justify-center">
+                <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
+              </div>
+            </div>
           </label>
         </div>
       </div>
