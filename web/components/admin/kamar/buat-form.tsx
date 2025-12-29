@@ -15,7 +15,7 @@ const BuatForm = () => {
               <span className="text-sm text-red-500 mt-2">Pesan</span>
             </div>
           </div>
-          <div className="mb-4">
+          <div className="mb-4 grid md:grid-cols-3">
             <input type="checkbox" name="amenities" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
             <label className="ms-2 text-sm font-medium text-gray-900 capitalize">Spa</label>
             <div aria-live="polite" aria-atomic="true">
