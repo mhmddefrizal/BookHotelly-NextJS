@@ -28,7 +28,7 @@ const BuatForm = () => {
             <div className="flex flex-col items-center justify-center text-gray-500 pt-5 pb-6 z-10">
               <div className="flex flex-col items-center justify-center">
                 <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
-                <p>SVG, PNG, JPG, GIF or Others</p>
+                <p>SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>
               </div>
             </div>
           </label>
