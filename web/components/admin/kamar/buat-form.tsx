@@ -33,8 +33,8 @@ const BuatForm = () => {
                 <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
                 <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>
               </div>
-              <input type="file" id="input-file" className="hidden" />
             </div>
+            <input type="file" id="input-file" className="hidden" />
           </label>
         </div>
       </div>
