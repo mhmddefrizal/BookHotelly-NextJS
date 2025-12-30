@@ -49,7 +49,9 @@ const BuatForm = () => {
             </div>
           </div>
 
-          
+          <button type="submit" className="bg-blue-600 text-white w-full hover:bg-blue-800 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer">
+            Simpan
+          </button>
         </div>
       </div>
     </form>
