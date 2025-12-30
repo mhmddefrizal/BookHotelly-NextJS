@@ -37,11 +37,19 @@ const BuatForm = () => {
             <input type="file" id="input-file" className="hidden" />
           </label>
           <div className="mb-4">
+            <input type="text" name="capacity" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
+            <div aria-live="polite" aria-atomic="true">
+              <span className="text-sm text-red-500 mt-2">Pesan</span>
+            </div>
+          </div>
+          <div className="mb-4">
             <input type="text" name="price" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Harga..." />
             <div aria-live="polite" aria-atomic="true">
               <span className="text-sm text-red-500 mt-2">Pesan</span>
             </div>
           </div>
+
+          
         </div>
       </div>
     </form>
