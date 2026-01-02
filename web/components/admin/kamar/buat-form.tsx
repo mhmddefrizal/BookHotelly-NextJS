@@ -5,6 +5,9 @@ import { IoCloudUploadOutline } from "react-icons/io5";
 const BuatForm = () => {
   // buat useRef untuk input file dari form upload
   const inputFileRef = useRef<HTMLInputElement>(null);
+
+  // buat useState untuk menyimpan URL gambar yang diupload
+  const [image, setImage] = useState("");
   return (
     <form action="">
       <div className="grid md:grid-cols-12 gap-5">
@@ -38,7 +41,7 @@ const BuatForm = () => {
                 <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>
               </div>
             </div>
-            <input type="file" id="input-file" className="hidden" />
+            <input type="file" ref={inputFileRef} id="input-file" className="hidden" />
           </label>
           <div className="mb-4">
             <input type="text" name="capacity" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
