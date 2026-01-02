@@ -8,6 +8,9 @@ const BuatForm = () => {
 
   // buat useState untuk menyimpan URL gambar yang diupload
   const [image, setImage] = useState("");
+
+  // buat useState untuk menyimpan pesan error atau sukses
+  const [message, setMessage] = useState("");
   return (
     <form action="">
       <div className="grid md:grid-cols-12 gap-5">
