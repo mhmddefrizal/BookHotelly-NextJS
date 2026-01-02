@@ -30,8 +30,10 @@ const BuatForm = () => {
         return;
       }
       const img = data as PutBlobResult;
-      
-    } catch (error) {}
+      setImage(img.url);
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <form action="">
@@ -66,7 +68,7 @@ const BuatForm = () => {
                 <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>
               </div>
             </div>
-            <input type="file" ref={inputFileRef} id="input-file" className="hidden" />
+            <input type="file" ref={inputFileRef} onChange={handleUpload} id="input-file" className="hidden" />
           </label>
           <div className="mb-4">
             <input type="text" name="capacity" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
