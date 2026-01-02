@@ -15,4 +15,10 @@ export const PUT = async (request: Request) => {
   if (!file.type.startsWith("image/")) {
     return NextResponse.json({ error: "File must be an image" }, { status: 400 });
   }
+
+  const blob = await put(file.name, file, {
+    access: "public",
+    multipart: true,
+  });
+  return NextResponse.json({ url: blob.url });
 };
