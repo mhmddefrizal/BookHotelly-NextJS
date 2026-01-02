@@ -3,6 +3,8 @@ import { useRef, useState } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
 const BuatForm = () => {
+  // buat useRef untuk input file dari form upload
+  const inputFileRef = useRef<HTMLInputElement>(null);
   return (
     <form action="">
       <div className="grid md:grid-cols-12 gap-5">
