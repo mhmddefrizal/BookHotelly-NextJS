@@ -1,3 +1,5 @@
+"use client";
+import { useRef, useState } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
 const BuatForm = () => {
