@@ -20,5 +20,5 @@ export const PUT = async (request: Request) => {
     access: "public",
     multipart: true,
   });
-  return NextResponse.json({ url: blob.url });
+  return NextResponse.json(blob);
 };
