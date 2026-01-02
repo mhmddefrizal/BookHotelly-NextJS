@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline } from "react-icons/io5";
 
 const BuatForm = () => {
@@ -11,6 +12,27 @@ const BuatForm = () => {
 
   // buat useState untuk menyimpan pesan error atau sukses
   const [message, setMessage] = useState("");
+
+  const handleUpload = async () => {
+    if (!inputFileRef.current?.files) return null;
+    const file = inputFileRef.current.files[0];
+    const formData = new FormData();
+    formData.set("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "PUT",
+        body: formData,
+      });
+      const data = await response.json();
+      if (response.status !== 200) {
+        setMessage(data.message);
+        return;
+      }
+      const img = data as PutBlobResult;
+      
+    } catch (error) {}
+  };
   return (
     <form action="">
       <div className="grid md:grid-cols-12 gap-5">
