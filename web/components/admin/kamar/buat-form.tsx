@@ -1,8 +1,9 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, useTransition } from "react";
 import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import Image from "next/image";
+import { BarLoader } from "react-spinners";
 
 const BuatForm = () => {
   // buat useRef untuk input file dari form upload
@@ -14,27 +15,30 @@ const BuatForm = () => {
   // buat useState untuk menyimpan pesan error atau sukses
   const [message, setMessage] = useState("");
 
-  const handleUpload = async () => {
+  const [pending, setTransition] = useTransition();
+  const handleUpload = () => {
     if (!inputFileRef.current?.files) return null;
     const file = inputFileRef.current.files[0];
     const formData = new FormData();
     formData.set("file", file);
 
-    try {
-      const response = await fetch("/api/upload", {
-        method: "PUT",
-        body: formData,
-      });
-      const data = await response.json();
-      if (response.status !== 200) {
-        setMessage(data.message);
-        return;
+    setTransition(async () => {
+      try {
+        const response = await fetch("/api/upload", {
+          method: "PUT",
+          body: formData,
+        });
+        const data = await response.json();
+        if (response.status !== 200) {
+          setMessage(data.message);
+          return;
+        }
+        const img = data as PutBlobResult;
+        setImage(img.url);
+      } catch (error) {
+        console.log(error);
       }
-      const img = data as PutBlobResult;
-      setImage(img.url);
-    } catch (error) {
-      console.log(error);
-    }
+    });
   };
   return (
     <form action="">
