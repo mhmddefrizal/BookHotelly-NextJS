@@ -66,7 +66,8 @@ const BuatForm = () => {
               <div className="flex flex-col items-center justify-center">
                 <IoCloudUploadOutline className="size-8" />
                 <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
-                <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>
+                {/* buat kondisi dimana jika pesan ada maka tampilkan pesan */}
+                {message ? <p className="text-sm text-red-500 mt-2">{message}</p> : <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>}
               </div>
             </div>
             {/* buat kondisi dimana jika image ada maka tampilkan gambar */}
