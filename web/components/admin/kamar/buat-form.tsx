@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline } from "react-icons/io5";
+import Image from "next/image";
 
 const BuatForm = () => {
   // buat useRef untuk input file dari form upload
@@ -68,7 +69,12 @@ const BuatForm = () => {
                 <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>
               </div>
             </div>
-            <input type="file" ref={inputFileRef} onChange={handleUpload} id="input-file" className="hidden" />
+            {/* buat kondisi dimana jika image ada maka tampilkan gambar */}
+            {!image ? (
+              <input type="file" ref={inputFileRef} onChange={handleUpload} id="input-file" className="hidden" />
+            ) : (
+              <Image src={image} alt="image" width={640} height={360} className="rounded-md absolute aspect-video object-cover" />
+            )}
           </label>
           <div className="mb-4">
             <input type="text" name="capacity" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
