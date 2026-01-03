@@ -15,6 +15,7 @@ const BuatForm = () => {
   // buat useState untuk menyimpan pesan error atau sukses
   const [message, setMessage] = useState("");
 
+  // buat useTransition untuk menandai proses pengiriman
   const [pending, setTransition] = useTransition();
   const handleUpload = () => {
     if (!inputFileRef.current?.files) return null;
@@ -68,6 +69,8 @@ const BuatForm = () => {
           <label htmlFor="input-file" className="flex flex-col mb-4 items-center justify-center aspect-video border-2 border-gray-300 border-dashed rounded-md cursor-pointer bg-gray-50 relative">
             <div className="flex flex-col items-center justify-center text-gray-500 pt-5 pb-6 z-10">
               <div className="flex flex-col items-center justify-center">
+                {/* gunakan variabel pending untuk menandai proses pengiriman */}
+                {pending ? <BarLoader /> : null}
                 <IoCloudUploadOutline className="size-8" />
                 <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
                 {/* buat kondisi dimana jika pesan ada maka tampilkan pesan */}
