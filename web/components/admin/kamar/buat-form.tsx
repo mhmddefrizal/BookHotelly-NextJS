@@ -81,17 +81,23 @@ const BuatForm = () => {
         <div className="col-span-4 bg-white p-4">
           <label htmlFor="input-file" className="flex flex-col mb-4 items-center justify-center aspect-video border-2 border-gray-300 border-dashed rounded-md cursor-pointer bg-gray-50 relative">
             <div className="flex flex-col items-center justify-center text-gray-500 pt-5 pb-6 z-10">
-              <div className="flex flex-col items-center justify-center">
-                {/* gunakan variabel pending untuk menandai proses pengiriman */}
-                {pending ? <BarLoader /> : null}
+              {/* gunakan variabel pending untuk menandai proses pengiriman */}
+              {pending ? <BarLoader /> : null}
+
+              {/* buat kondisi dimana jika image ada maka tampilkan tombol delete jika tidak ada maka tampilkan icon upload
+              */}
+              {image ? (
                 <button type="button" onClick={() => deleteImage(image)} className="flex items-center justify-center bg-transparent size-6 rounded-sm absolute right-1 top-1 text-white hover:bg-red-500 ">
                   <IoTrashOutline className="size-4 text-transparent hover:text-white" />
                 </button>
-                <IoCloudUploadOutline className="size-8" />
-                <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
-                {/* buat kondisi dimana jika pesan ada maka tampilkan pesan */}
-                {message ? <p className="text-sm text-red-500 mt-2">{message}</p> : <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>}
-              </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center">
+                  <IoCloudUploadOutline className="size-8" />
+                  <p className="mb-1 text-sm font-bold">Pilih Gambar</p>
+                  {/* buat kondisi dimana jika pesan ada maka tampilkan pesan */}
+                  {message ? <p className="text-sm text-red-500 mt-2">{message}</p> : <p className="text-xs">SVG, PNG, JPG, GIF or Others (Max: 4MB)</p>}
+                </div>
+              )}
             </div>
             {/* buat kondisi dimana jika image ada maka tampilkan gambar */}
             {!image ? (
