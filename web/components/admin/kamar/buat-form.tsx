@@ -4,8 +4,9 @@ import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline, IoTrashOutline } from "react-icons/io5";
 import Image from "next/image";
 import { BarLoader } from "react-spinners";
+import { Amenities } from "@prisma/client";
 
-const BuatForm = () => {
+const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
   // buat useRef untuk input file dari form upload
   const inputFileRef = useRef<HTMLInputElement>(null);
 
@@ -85,7 +86,7 @@ const BuatForm = () => {
               {pending ? <BarLoader /> : null}
 
               {/* buat kondisi dimana jika image ada maka tampilkan tombol delete jika tidak ada maka tampilkan icon upload
-              */}
+               */}
               {image ? (
                 <button type="button" onClick={() => deleteImage(image)} className="flex items-center justify-center bg-transparent size-6 rounded-sm absolute right-1 top-1 text-white hover:bg-red-500 ">
                   <IoTrashOutline className="size-4 text-transparent hover:text-white" />
