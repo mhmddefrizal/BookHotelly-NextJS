@@ -16,14 +16,14 @@ const BuatForm = () => {
   const [message, setMessage] = useState("");
 
   // buat useTransition untuk menandai proses pengiriman
-  const [pending, setTransition] = useTransition();
+  const [pending, startTransition] = useTransition();
   const handleUpload = () => {
     if (!inputFileRef.current?.files) return null;
     const file = inputFileRef.current.files[0];
     const formData = new FormData();
     formData.set("file", file);
 
-    setTransition(async () => {
+    startTransition(async () => {
       try {
         const response = await fetch("/api/upload", {
           method: "PUT",
@@ -36,6 +36,19 @@ const BuatForm = () => {
         }
         const img = data as PutBlobResult;
         setImage(img.url);
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  };
+
+  const deleteImage = (image: string) => {
+    startTransition(async () => {
+      try {
+        await fetch(`/api/upload/?imageUrl=${image}`, {
+          method: "DELETE",
+        });
+        setImage("");
       } catch (error) {
         console.log(error);
       }
