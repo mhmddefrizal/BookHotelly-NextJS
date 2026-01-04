@@ -72,8 +72,12 @@ const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
             </div>
           </div>
           <div className="mb-4 grid md:grid-cols-3">
-            <input type="checkbox" name="amenities" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
-            <label className="ms-2 text-sm font-medium text-gray-900 capitalize">Spa</label>
+            {amenities.map((item) => (
+              <div key={item.id} className="flex items-center mb-4">
+                <input defaultValue={item.id} type="checkbox" name="amenities" value={item.id} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded" />
+                <label className="ms-2 text-sm font-medium text-gray-900 capitalize">{item.name}</label>
+              </div>
+            ))}
             <div aria-live="polite" aria-atomic="true">
               <span className="text-sm text-red-500 mt-2">Pesan</span>
             </div>
