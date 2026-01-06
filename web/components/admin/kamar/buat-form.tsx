@@ -1,10 +1,11 @@
 "use client";
-import { useRef, useState, useTransition } from "react";
+import { useActionState, useRef, useState, useTransition } from "react";
 import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline, IoTrashOutline } from "react-icons/io5";
 import Image from "next/image";
 import { BarLoader } from "react-spinners";
 import { Amenities } from "@prisma/client";
+import { saveRoom } from "@/lib/action";
 
 const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
   // buat useRef untuk input file dari form upload
@@ -55,20 +56,23 @@ const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
       }
     });
   };
+
+  const [state, formAction, ispending] = useActionState(saveRoom.bind(null, image), null);
+
   return (
-    <form action="">
+    <form action={formAction}>
       <div className="grid md:grid-cols-12 gap-5">
         <div className="col-span-8 bg-white p-4">
           <div className="mb-4">
             <input type="text" name="name" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Nama Kamar..." />
             <div aria-live="polite" aria-atomic="true">
-              <span className="text-sm text-red-500 mt-2">Pesan</span>
+              <span className="text-sm text-red-500 mt-2">{state?.error?.name}</span>
             </div>
           </div>
           <div className="mb-4">
             <textarea name="description" rows={8} className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Description"></textarea>
             <div aria-live="polite" aria-atomic="true">
-              <span className="text-sm text-red-500 mt-2">Pesan</span>
+              <span className="text-sm text-red-500 mt-2">{state?.error?.description}</span>
             </div>
           </div>
           <div className="mb-4 grid md:grid-cols-3">
@@ -79,7 +83,7 @@ const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
               </div>
             ))}
             <div aria-live="polite" aria-atomic="true">
-              <span className="text-sm text-red-500 mt-2">Pesan</span>
+              <span className="text-sm text-red-500 mt-2">{state?.error?.amenities}</span>
             </div>
           </div>
         </div>
@@ -114,16 +118,21 @@ const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
           <div className="mb-4">
             <input type="text" name="capacity" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
             <div aria-live="polite" aria-atomic="true">
-              <span className="text-sm text-red-500 mt-2">Pesan</span>
+              <span className="text-sm text-red-500 mt-2">{state?.error?.capacity}</span>
             </div>
           </div>
           <div className="mb-4">
             <input type="text" name="price" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Harga..." />
             <div aria-live="polite" aria-atomic="true">
-              <span className="text-sm text-red-500 mt-2">Pesan</span>
+              <span className="text-sm text-red-500 mt-2">{state?.error?.price}</span>
             </div>
           </div>
-
+          {/* General Message */}
+          {state?.message ? (
+            <div className="mb-4 bg-red-200 p-2">
+              <span className="text-sm text-gray-700 mt-2">{state.message}</span>
+            </div>
+          ) : null}
           <button type="submit" className="bg-blue-600 text-white w-full hover:bg-blue-800 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer">
             Simpan
           </button>
