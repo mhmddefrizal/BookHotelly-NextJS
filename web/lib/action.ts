@@ -3,6 +3,18 @@
 import { ContactSchema } from "@/lib/zod";
 import { prisma } from "@/lib/prisma";
 
+export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
+  if (!image) return { message: "gambar harus diupload terlebih dahulu" };
+
+  const rawData = {
+    name: formData.get("name"),
+    description: formData.get("description"),
+    capacity: formData.get("capacity"),
+    price: formData.get("price"),
+    amenities: formData.getAll("amenities"),
+  };
+};
+
 export const ContactMessage = async (prevState: unknown, formData: FormData) => {
   const validatedFields = ContactSchema.safeParse(Object.fromEntries(formData.entries()));
 
