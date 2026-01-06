@@ -1,7 +1,8 @@
 "use server";
 
-import { ContactSchema } from "@/lib/zod";
+import { ContactSchema, RoomSchema } from "@/lib/zod";
 import { prisma } from "@/lib/prisma";
+import { error } from "console";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
   if (!image) return { message: "gambar harus diupload terlebih dahulu" };
@@ -13,6 +14,32 @@ export const saveRoom = async (image: string, prevState: unknown, formData: Form
     price: formData.get("price"),
     amenities: formData.getAll("amenities"),
   };
+
+  const validatedFields = RoomSchema.safeParse(rawData);
+  if (!validatedFields.success) {
+    return { error: validatedFields.error.flatten().fieldErrors };
+  }
+
+  const { name, description, capacity, price, amenities } = validatedFields.data;
+
+  try {
+    await prisma.room.create({
+      data: {
+        name,
+        description,
+        image,
+        price,
+        capacity,
+        RoomAmenities: {
+          createMany: {
+            data: amenities.map((item) => ({ amenitiesId: item })),
+          },
+        },
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const ContactMessage = async (prevState: unknown, formData: FormData) => {
