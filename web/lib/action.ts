@@ -3,6 +3,7 @@
 import { ContactSchema, RoomSchema } from "@/lib/zod";
 import { prisma } from "@/lib/prisma";
 import { error } from "console";
+import { redirect } from "next/navigation";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
   if (!image) return { message: "gambar harus diupload terlebih dahulu" };
@@ -40,6 +41,7 @@ export const saveRoom = async (image: string, prevState: unknown, formData: Form
   } catch (error) {
     console.log(error);
   }
+  redirect("/admin/kamar");
 };
 
 export const ContactMessage = async (prevState: unknown, formData: FormData) => {
