@@ -1,7 +1,7 @@
 import { getRooms } from "@/lib/data";
 import Image from "next/image";
 import { formatDate, formatCurrency } from "@/lib/utils";
-import { DeleteButton } from "@/components/admin/kamar/button";
+import { DeleteButton, EditButton } from "@/components/admin/kamar/button";
 
 const TabelKamar = async () => {
     const rooms = await getRooms();
@@ -34,9 +34,14 @@ const TabelKamar = async () => {
                             <td className='px-6 py-4'>{formatCurrency(room.price)}</td>
                             {/* tanggal dibuat */}
                             <td className='px-6 py-4'>{formatDate(room.createdAt.toString())}</td>
-                            {/* tombol delete */}
+                            {/* tombol aksi */}
                             <td className='px-6 py-4 text-right'>
-                                <DeleteButton id={room.id} image={room.image} />
+                                <div className="flex items-center gap-1 justify-center">
+                                    {/* tombol edit */}
+                                    <EditButton id={room.id} />
+                                    {/* tombol hapus */}
+                                    <DeleteButton id={room.id} image={room.image} />
+                                </div>
                             </td>
                         </tr>
                     ))}
