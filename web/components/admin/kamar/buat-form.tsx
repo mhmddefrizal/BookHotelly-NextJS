@@ -6,6 +6,8 @@ import Image from "next/image";
 import { BarLoader } from "react-spinners";
 import { Amenities } from "@prisma/client";
 import { saveRoom } from "@/lib/action";
+import { is } from "zod/locales";
+import clsx from "clsx";
 
 const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
   // buat useRef untuk input file dari form upload
@@ -57,7 +59,7 @@ const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
     });
   };
 
-  const [state, formAction, ispending] = useActionState(saveRoom.bind(null, image), null);
+  const [state, formAction, isPending] = useActionState(saveRoom.bind(null, image), null);
 
   return (
     <form action={formAction}>
@@ -133,8 +135,16 @@ const BuatForm = ({ amenities }: { amenities: Amenities[] }) => {
               <span className="text-sm text-gray-700 mt-2">{state.message}</span>
             </div>
           ) : null}
-          <button type="submit" className="bg-blue-600 text-white w-full hover:bg-blue-800 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer">
-            Simpan
+          <button
+            type="submit"
+            className={clsx(
+              "bg-blue-600 text-white w-full hover:bg-blue-800 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer", {
+              'opacity-50 cursor-progress': isPending,
+            })}
+            disabled={isPending}
+          >
+            {/* Simpan */}
+            {isPending ? <BarLoader /> : 'Simpan'}
           </button>
         </div>
       </div>
