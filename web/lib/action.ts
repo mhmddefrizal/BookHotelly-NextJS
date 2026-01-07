@@ -4,6 +4,8 @@ import { ContactSchema, RoomSchema } from "@/lib/zod";
 import { prisma } from "@/lib/prisma";
 import { error } from "console";
 import { redirect } from "next/navigation";
+import { del } from "@vercel/blob";
+import { revalidatePath } from "next/cache";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
   if (!image) return { message: "gambar harus diupload terlebih dahulu" };
@@ -68,3 +70,19 @@ export const ContactMessage = async (prevState: unknown, formData: FormData) => 
     console.log(error);
   }
 };
+
+// hapus kamar
+export const DeleteRoom = async (id: string, image: string) => {
+  try {
+    // hapus gambar
+    await del(image);
+    await prisma.room.delete({
+      where: { id },
+    });
+
+    // revalidate halaman admin/kamar
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/admin/kamar");
+}
