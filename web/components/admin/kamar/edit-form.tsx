@@ -6,21 +6,22 @@ import Image from "next/image";
 import { BarLoader } from "react-spinners";
 import { Amenities } from "@prisma/client";
 import { saveRoom } from "@/lib/action";
+import { RoomProps } from "@/types/room";
 import { is } from "zod/locales";
 import clsx from "clsx";
 
 const EditForm = ({ 
     amenities,
-    room
+    room,
 }: { 
     amenities: Amenities[] 
-    room: 
+    room: RoomProps;
 }) => {
   // buat useRef untuk input file dari form upload
   const inputFileRef = useRef<HTMLInputElement>(null);
 
   // buat useState untuk menyimpan URL gambar yang diupload
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(room.image);
 
   // buat useState untuk menyimpan pesan error atau sukses
   const [message, setMessage] = useState("");
@@ -72,13 +73,13 @@ const EditForm = ({
       <div className="grid md:grid-cols-12 gap-5">
         <div className="col-span-8 bg-white p-4">
           <div className="mb-4">
-            <input type="text" name="name" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Nama Kamar..." />
+            <input type="text" name="name" defaultValue={room.name} className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Nama Kamar..." />
             <div aria-live="polite" aria-atomic="true">
               <span className="text-sm text-red-500 mt-2">{state?.error?.name}</span>
             </div>
           </div>
           <div className="mb-4">
-            <textarea name="description" rows={8} className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Description"></textarea>
+            <textarea name="description" rows={8} defaultValue={room.description} className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Description"></textarea>
             <div aria-live="polite" aria-atomic="true">
               <span className="text-sm text-red-500 mt-2">{state?.error?.description}</span>
             </div>
@@ -124,13 +125,13 @@ const EditForm = ({
             )}
           </label>
           <div className="mb-4">
-            <input type="text" name="capacity" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
+            <input type="text" name="capacity" defaultValue={room.capacity} className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Kapasitas..." />
             <div aria-live="polite" aria-atomic="true">
               <span className="text-sm text-red-500 mt-2">{state?.error?.capacity}</span>
             </div>
           </div>
           <div className="mb-4">
-            <input type="text" name="price" className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Harga..." />
+            <input type="text" name="price" defaultValue={room.price} className="py-2 px-4 rounded-sm border border-gray-400 w-full" placeholder="Harga..." />
             <div aria-live="polite" aria-atomic="true">
               <span className="text-sm text-red-500 mt-2">{state?.error?.price}</span>
             </div>
