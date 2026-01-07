@@ -1,6 +1,7 @@
 import { getRooms } from "@/lib/data";
 import Image from "next/image";
 import { formatDate, formatCurrency } from "@/lib/utils";
+import { DeleteButton } from "@/components/admin/kamar/button";
 
 const TabelKamar = async () => {
     const rooms = await getRooms();
@@ -27,10 +28,16 @@ const TabelKamar = async () => {
                                     <Image src={room.image} fill sizes="20vw" alt=" room image" className="object-cover" />
                                 </div>
                             </td>
+                            {/* nama kamar */}
                             <td className='px-6 py-4'>{room.name}</td>
+                            {/* harga kamar */}
                             <td className='px-6 py-4'>{formatCurrency(room.price)}</td>
+                            {/* tanggal dibuat */}
                             <td className='px-6 py-4'>{formatDate(room.createdAt.toString())}</td>
-                            <td className='px-6 py-4 text-right'></td>
+                            {/* tombol delete */}
+                            <td className='px-6 py-4 text-right'>
+                                <DeleteButton id={room.id} image={room.image} />
+                            </td>
                         </tr>
                     ))}
                 </tbody>

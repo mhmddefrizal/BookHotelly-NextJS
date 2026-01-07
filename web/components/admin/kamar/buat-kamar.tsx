@@ -1,4 +1,4 @@
-import BuatForm from "@/components/admin/kamar/buat-form";
+  import BuatForm from "@/components/admin/kamar/buat-form";
 import { getAmenities } from "@/lib/data";
 const BuatKamar = async () => {
   const amenities = await getAmenities();
