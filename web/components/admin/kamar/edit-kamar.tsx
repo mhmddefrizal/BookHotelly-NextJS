@@ -1,5 +1,5 @@
 import EditForm from "@/components/admin/kamar/edit-form";
-import { getAmenities } from "@/lib/data";
+import { getAmenities, getRoomById } from "@/lib/data";
 
 const EditKamar = async ({roomId}:{roomId:string}) => {
   const amenities = await getAmenities();
