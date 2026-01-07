@@ -13,3 +13,19 @@ export const getAmenities = async () => {
     console.log(error);
   }
 };
+
+// fungsi untuk mengambil data kamar
+export const getRooms = async () => {
+  const session = await auth();
+  if (!session || !session.user) {
+    throw new Error("Unauthorized Access");
+  }
+  try {
+    const result = await prisma.room.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
