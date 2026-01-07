@@ -5,7 +5,7 @@ import { IoCloudUploadOutline, IoTrashOutline } from "react-icons/io5";
 import Image from "next/image";
 import { BarLoader } from "react-spinners";
 import { Amenities } from "@prisma/client";
-import { saveRoom } from "@/lib/action";
+import { UpdateRoom } from "@/lib/action";
 import { RoomProps } from "@/types/room";
 import { is } from "zod/locales";
 import clsx from "clsx";
@@ -67,7 +67,10 @@ const EditForm = ({
   };
 
 // buat useActionState untuk menangani pengiriman form 
-  const [state, formAction, isPending] = useActionState(saveRoom.bind(null, image), null);
+  const [state, formAction, isPending] = useActionState(
+    UpdateRoom.bind(null, image, room.id), 
+    null
+);
 
 //   buat array berisi id amenities yang sudah dipilih
   const checkedAmenities = room.RoomAmenities.map((item) => item.amenitiesId);
