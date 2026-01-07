@@ -9,7 +9,13 @@ import { saveRoom } from "@/lib/action";
 import { is } from "zod/locales";
 import clsx from "clsx";
 
-const EditForm = ({ amenities }: { amenities: Amenities[] }) => {
+const EditForm = ({ 
+    amenities,
+    room
+}: { 
+    amenities: Amenities[] 
+    room: 
+}) => {
   // buat useRef untuk input file dari form upload
   const inputFileRef = useRef<HTMLInputElement>(null);
 
