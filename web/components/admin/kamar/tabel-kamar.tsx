@@ -22,7 +22,9 @@ const TabelKamar = async () => {
                     {rooms.map((room) => (
                         <tr key={room.id} className='hover:bg-gray-100'>
                             <td className='px-6 py-4'>
-                                <Image src={room.image} fill sizes="20vw" alt=" room image" className="object-cover" />
+                                <div className="h-20 w-32 relative">
+                                    <Image src={room.image} fill sizes="20vw" alt=" room image" className="object-cover" />
+                                </div>
                             </td>
                             <td className='px-6 py-4'>{room.name}</td>
                             <td className='px-6 py-4'>{room.price}</td>
