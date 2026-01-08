@@ -1,5 +1,8 @@
 import Image from 'next/image'
 import { getReservationById } from '@/lib/data';
+import { formatDate } from '@/lib/utils';
+
+
 // import fungsi untuk mengambil data reservasi berdasarkan ID
 const CheckoutDetail = async({reservationId}:{reservationId:string}) => {
     const reservation = await getReservationById(reservationId);
@@ -53,12 +56,16 @@ const CheckoutDetail = async({reservationId}:{reservationId:string}) => {
                     {/* tanggal kedatangan */}
                     <tr>
                         <td className='py-2'>Kedatangan</td>
-                        <td className='py-2 text-right truncate'>{reservation.startDate.toISOString()}</td>
+                        <td className='py-2 text-right truncate'>{formatDate(reservation.startDate.toISOString())}</td>
                     </tr>
                     {/* tanggal kepergian */}
                     <tr>
                         <td className='py-2'>Kepergian</td>
-                        <td className='py-2 text-right truncate'>{reservation.endDate.toISOString()}</td>
+                        <td className='py-2 text-right truncate'>{formatDate(reservation.endDate.toISOString())}</td>
+                    </tr>
+                    <tr>
+                        <td className='py-2'>Durasi Jatuh Tempo</td>
+                        <td className='py-2 text-right truncate'>{formatDate(reservation.endDate.toISOString())}</td>
                     </tr>
                 </tbody>
             </table>
