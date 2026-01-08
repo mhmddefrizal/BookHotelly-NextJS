@@ -173,7 +173,7 @@ export const CreateReserve = async (
   }
   const night = differenceInCalendarDays(endDate, startDate);
   if (night <= 0) {
-    return { message: "Tanggal keberangkatan harus lebih besar dari tanggal kedatangan" };
+    return { messageDate: "Tanggal keberangkatan harus lebih besar dari tanggal kedatangan" };
   }
   const total = night * room.price;
 
