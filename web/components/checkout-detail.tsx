@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import React from 'react'
-
+import { getReservationById } from '@/lib/data';
 // import fungsi untuk mengambil data reservasi berdasarkan ID
 const CheckoutDetail = async({reservationId}:{reservationId:string}) => {
     const reservation = await getReservationById(reservationId);
@@ -14,7 +13,55 @@ const CheckoutDetail = async({reservationId}:{reservationId:string}) => {
                 <div className="aspect-video relative">
                     <Image src={reservation.Room.image} width={500} height={300} alt={reservation.Room.name} fill className="object-cover w-full rounded-t-sm aspect-video md:rounded-t-none md:rounded-s -sm"/>
                 </div>
+                <div className="flex flex-col justify-between p-4 leading-normal w-full">
+                    <h5 className='mb-1 text-4xl font-bold tracking-tight text-gray-600'>{reservation.Room.name}</h5>
+                    <div className="flex items-center gap-1 text-2xl text-gray-700">
+                        <div className="flex items-center justify-center gap-1">
+                            <span className='text-2xl'>
+                                {reservation.price}        
+                            </span>
+                            <span>/ malam</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+            {/* tombol bayar */}
+        </div>
+        <div className="border border-gray-300 px-3 py-5 rounded-md p-5 bg-slate-50">
+            <table className='w-full'>
+                <tbody>
+                    {/* ID reservasi */}
+                    <tr>
+                        <td className='py-2'>ID Reservasi</td>
+                        <td className='py-2 text-right truncate'>{reservation.id}</td>
+                    </tr>
+                    {/* nama */}
+                    <tr>
+                        <td className='py-2'>Nama</td>
+                        <td className='py-2 text-right truncate'>{reservation.User.name}</td>
+                    </tr>
+                    {/* email */}
+                    <tr>
+                        <td className='py-2'>Email</td>
+                        <td className='py-2 text-right truncate'>{reservation.User.email}</td>
+                    </tr>
+                    {/* nomor telepon */}
+                    <tr>
+                        <td className='py-2'>Nomor Telepon</td>
+                        <td className='py-2 text-right truncate'>{reservation.User.phone}</td>
+                    </tr>
+                    {/* tanggal kedatangan */}
+                    <tr>
+                        <td className='py-2'>Kedatangan</td>
+                        <td className='py-2 text-right truncate'>{reservation.startDate.toISOString()}</td>
+                    </tr>
+                    {/* tanggal kepergian */}
+                    <tr>
+                        <td className='py-2'>Kepergian</td>
+                        <td className='py-2 text-right truncate'>{reservation.endDate.toISOString()}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
   )
