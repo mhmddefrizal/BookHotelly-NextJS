@@ -45,6 +45,7 @@ const DetailKamar = async ({roomId}:{roomId:string}) => {
                         <span className="text-gray-400 text-sm">/Malam</span>
                     </div>
                 </div>
+                {/* Reservasio Form */}
             </div>
         </div>
     </div>

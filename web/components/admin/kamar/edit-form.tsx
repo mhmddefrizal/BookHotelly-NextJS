@@ -68,7 +68,7 @@ const EditForm = ({
 
 // buat useActionState untuk menangani pengiriman form 
   const [state, formAction, isPending] = useActionState(
-    UpdateRoom.bind(null, image, room.id), 
+    (_state, formData) => UpdateRoom(room.id, formData, image),
     null
 );
 
