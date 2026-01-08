@@ -5,6 +5,8 @@ import DatePicker from "react-datepicker";
 
 
 const reserveform = () => {
+    const StartDate = new Date();
+    const EndDate = addDays(StartDate, 1);
   return (
     <div>
         <form action="">
