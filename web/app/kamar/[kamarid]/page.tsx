@@ -4,7 +4,9 @@ export const metadata: Metadata = {
 }
 
 const KamarDetailpage
- = () => {
+ = async({params
+}:{params: Promise<{ kamarid: string }>}
+ ) => {
   return (
     <div>KamarDetailpage
 
