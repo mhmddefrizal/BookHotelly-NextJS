@@ -11,6 +11,14 @@ const Reserveform = () => {
 
     const [startDate, setStartDate] = useState(StartDate);
     const [endDate, setEndDate] = useState(EndDate);
+
+
+    const handleDateChange = (dates: any) => {
+        const [start, end] = dates;
+        setStartDate(start);
+        setEndDate(end);
+    };
+
   return (
     <div>
         <form action="">
