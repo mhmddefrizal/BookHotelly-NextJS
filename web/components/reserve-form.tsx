@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {CreateReserve} from "@/lib/action";
 import { RoomDetailProps } from "@/types/room";
+import clsx from "clsx";
 
 const Reserveform = ({room}: {room: RoomDetailProps}) => {
     const StartDate = new Date();
@@ -22,7 +23,7 @@ const Reserveform = ({room}: {room: RoomDetailProps}) => {
     };
 
     // gunakan useActionState untuk menghubungkan form dengan action createReserve
-    const [state, formAction, isPending] = useActionState(createReserve.bind(null, room.id, room.price,startDate, endDate), null);
+    const [state, formAction, isPending] = useActionState(CreateReserve.bind(null, room.id, room.price,startDate, endDate), { messageDate: "", error: { name: "", phone: "" } });
 
   return (
     <div>
@@ -59,8 +60,10 @@ const Reserveform = ({room}: {room: RoomDetailProps}) => {
                     <p className="text-sm text-red-500 mt-2">{state?.error?.phone}</p>
                 </div>
             </div>
-            <button type="submit" className="px-20 py-3 text-center font-semibold text-shadow-indigo-50 w-full
-            bg-orange-600 rounde-sm cursor-pointer hover:bg-orange-400"
+            <button type="submit" className={clsx(
+                "w-full bg-blue-600 text-white py-3 rounded-sm font-medium hover:bg-blue-700 transition-colors",
+                isPending && "opacity-50 cursor-not-allowed"
+            )}
             // pasang atribut kontrol untuk menonaktifkan tombol saat pengiriman form sedang berlangsung
             disabled={isPending}
             >{isPending ? "Loading..." : "Memesan"}</button>

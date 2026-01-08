@@ -3,6 +3,7 @@ import { getRoomDetailById } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { IoCheckmark, IoPeopleOutline } from "react-icons/io5";
 import { formatCurrency } from "@/lib/utils";
+import Reserveform from "./reserve-form";
 
 // komponen detail kamar
 const DetailKamar = async ({roomId}:{roomId:string}) => {
