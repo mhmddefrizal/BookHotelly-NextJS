@@ -13,7 +13,7 @@ const KamarDetailpage
     const kamarId = (await params).kamarId;
   return (
     <div className="mt-16">
-        <Suspense fallback>
+        <Suspense fallback={<p>Loading...</p>}>
             <DetailKamar roomId={kamarId} />
         </Suspense>
     </div>
