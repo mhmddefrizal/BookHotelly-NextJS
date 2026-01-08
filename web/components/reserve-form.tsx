@@ -1,22 +1,26 @@
 "use client"
-import { useState } from "react"
+
 import { addDays } from "date-fns";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 
-const reserveform = () => {
+const Reserveform = () => {
     const StartDate = new Date();
     const EndDate = addDays(StartDate, 1);
+
+    const [startDate, setStartDate] = useState(StartDate);
+    const [endDate, setEndDate] = useState(EndDate);
   return (
     <div>
         <form action="">
             <div className="mb-4">
                 <label className="block mb-2 text-sm font-medium text-gray-800">Kedatangan - Keberangkatan</label>
                 <DatePicker
-                selected={}
-                startDate={}
-                endDate={}
-                minDate={}
+                selected={startDate}
+                startDate={startDate}
+                endDate={endDate}
+                minDate={new Date()}
                 selectsRange={true}
                 dateFormat={"dd-MM-YYYY"}
                 wrapperClassName="w-full"
