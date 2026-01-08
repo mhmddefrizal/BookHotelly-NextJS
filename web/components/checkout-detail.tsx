@@ -21,12 +21,14 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                     <div className="aspect-video relative">
                         <Image src={reservation.Room.image} width={500} height={300} alt={reservation.Room.name} fill className="object-cover w-full rounded-t-sm aspect-video md:rounded-t-none md:rounded-s -sm" />
                     </div>
+                    {/* menampilkan detail kamar */}
                     <div className="flex flex-col justify-between p-4 leading-normal w-full">
                         <h5 className='mb-1 text-4xl font-bold tracking-tight text-gray-600'>{reservation.Room.name}</h5>
                         <div className="flex items-center gap-1 text-2xl text-gray-700">
                             <div className="flex items-center justify-center gap-1">
+                                {/* menampilkan harga */}
                                 <span className='text-2xl'>
-                                    {reservation.price}
+                                    {formatCurrency(reservation.price)}
                                 </span>
                                 <span>/ malam</span>
                             </div>
