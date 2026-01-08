@@ -4,9 +4,10 @@ import { addDays } from "date-fns";
 import { useState, useActionState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {createReserve} from "@/lib/action";
+import {CreateReserve} from "@/lib/action";
+import { RoomDetailProps } from "@/types/room";
 
-const Reserveform = ({roomId}: {roomId: string}) => {
+const Reserveform = ({room}: {room: RoomDetailProps}) => {
     const StartDate = new Date();
     const EndDate = addDays(StartDate, 1);
 
@@ -21,11 +22,11 @@ const Reserveform = ({roomId}: {roomId: string}) => {
     };
 
     // gunakan useActionState untuk menghubungkan form dengan action createReserve
-    const [state, formAction, isPending] = useActionState(createReserve.bind(null, roomId, startDate, endDate));
+    const [state, formAction, isPending] = useActionState(createReserve.bind(null, room.id, room.price,startDate, endDate), null);
 
   return (
     <div>
-        <form action="">
+        <form action={formAction}>
             <div className="mb-4">
                 <label className="block mb-2 text-sm font-medium text-gray-800">Kedatangan - Keberangkatan</label>
                 <DatePicker
@@ -39,7 +40,7 @@ const Reserveform = ({roomId}: {roomId: string}) => {
                 wrapperClassName="w-full"
                 className="py-2 px-4 rounded-md border border-gray-300 w-full"/>
                 <div aria-live="polite" aria-atomic="true">
-                    <p className="text-sm text-red-500 mt-2">Pesan</p>
+                    <p className="text-sm text-red-500 mt-2">{state?.messageDate}</p>
                 </div>
             </div>
              <div className="mb-4">
@@ -47,7 +48,7 @@ const Reserveform = ({roomId}: {roomId: string}) => {
                 <input type="text" name="name" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="Nama...."/>
                 
                 <div aria-live="polite" aria-atomic="true">
-                    <p className="text-sm text-red-500 mt-2">Pesan</p>
+                    <p className="text-sm text-red-500 mt-2">{state?.error?.name}</p>
                 </div>
             </div>
             <div className="mb-4">
@@ -55,11 +56,14 @@ const Reserveform = ({roomId}: {roomId: string}) => {
                 <input type="text" name="Telepon" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="No Telepon...."/>
                 
                 <div aria-live="polite" aria-atomic="true">
-                    <p className="text-sm text-red-500 mt-2">Pesan</p>
+                    <p className="text-sm text-red-500 mt-2">{state?.error?.phone}</p>
                 </div>
             </div>
             <button type="submit" className="px-20 py-3 text-center font-semibold text-shadow-indigo-50 w-full
-            bg-orange-600 rounde-sm cursor-pointer hover:bg-orange-400">Menyimpan</button>
+            bg-orange-600 rounde-sm cursor-pointer hover:bg-orange-400"
+            // pasang atribut kontrol untuk menonaktifkan tombol saat pengiriman form sedang berlangsung
+            disabled={isPending}
+            >{isPending ? "Loading..." : "Memesan"}</button>
         </form>
     </div>
   )
