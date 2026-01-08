@@ -80,9 +80,18 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                         <tr>
                             <td className='py-2'>Harga Total</td>
                             <td className='py-2 text-right truncate'>
-                                {/* menampilkan durasi menginap */}
+                                {/* menampilkan harga total */}
                                 <span>
                                     {formatCurrency(reservation.Payment.amount)}
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className='py-2'>Status Pembayaran</td>
+                            <td className='py-2 text-right truncate'>
+                                {/* menampilkan status pembayaran */}
+                                <span>
+                                    {reservation.Payment.status}
                                 </span>
                             </td>
                         </tr>
