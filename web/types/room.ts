@@ -5,6 +5,7 @@ export type RoomProps = Prisma.RoomGetPayload<{
     include: { RoomAmenities: { select: { amenitiesId: true } } };
 }>;
 
+// tipe data untuk properti room dengan include RoomAmenities dan Amenities
 export type RoomDetailProps = Prisma.RoomGetPayload<{
     include: {
         RoomAmenities: {
