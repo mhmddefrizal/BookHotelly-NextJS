@@ -1,5 +1,6 @@
 import { array, object, string, coerce } from "zod";
 
+// Schema untuk validasi form kamar
 export const RoomSchema = object({
   name: string().min(1),
   description: string().min(50),
@@ -8,6 +9,13 @@ export const RoomSchema = object({
   amenities: array(string()).nonempty(),
 });
 
+// Schema untuk validasi form reservasi
+export const ReserveSchema = object({
+  name: string().min(1),
+  phone: string().min(10),
+});
+
+// Schema untuk validasi form kontak
 export const ContactSchema = object({
   name: string().min(6, "nama harus berisi 6 karakter"),
   email: string().min(6, "email harus berisi 6 karakter.").email(" Mohon masukkan email yang valid"),
