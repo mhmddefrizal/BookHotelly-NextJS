@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { getReservationById } from '@/lib/data';
 import { formatDate } from '@/lib/utils';
+import { DifferenceInCalendarDays } from 'date-fns';
 
 
 // import fungsi untuk mengambil data reservasi berdasarkan ID
@@ -8,6 +9,10 @@ const CheckoutDetail = async({reservationId}:{reservationId:string}) => {
     const reservation = await getReservationById(reservationId);
     // jika data reservasi tidak ditemukan, tampilkan pesan
     if (!reservation || !reservation.Payment) return <h1>Tidak Ditemukan Data</h1>
+
+    // hitung durasi menginap
+    const duration = DifferenceInCalendarDays(reservation.endDate, reservation.startDate);
+
   return (
     <div className='grid md:grid-cols-2 gap-5'>
         <div className="order-2">
