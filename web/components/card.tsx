@@ -23,9 +23,9 @@ const Card = ({room}: {room:Room}) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <IoPeopleOutline />
-            <span>2 Orang</span>
+            <span>{room.capacity} {room.capacity === 1 ? "orang" : "orang"} Orang</span>
           </div>
-          <Link href="#" className="px-6 py-2.5 md:px-10 md:py-3 font-semibold text-white bg-blue-600 rounded-sm hover:bg-blue-900 transition duration-150">
+          <Link href={`/kamar/${room.id}`} className="px-6 py-2.5 md:px-10 md:py-3 font-semibold text-white bg-blue-600 rounded-sm hover:bg-blue-900 transition duration-150">
             Pesan Sekarang!
           </Link>
         </div>
