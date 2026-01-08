@@ -72,3 +72,35 @@ export const getRoomDetailById = async (roomId: string) => {
     console.log(error);
   }
 };
+
+export const getReservationById = async (id: string) => {
+  const session = await auth();
+  if (!session || !session.user) {
+    throw new Error("Unauthorized Access");
+  }
+  try {
+    const result = await prisma.reservation.findUnique({
+      where: { id },
+      include: {
+        Room: {
+          select: {
+            name: true,
+            price: true,
+            image: true,
+          },
+        },
+        User: {
+          select: {
+            name: true,
+            phone: true,
+            email: true,
+          },
+        },
+        Payment: true,
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
