@@ -13,7 +13,9 @@ const KamarDetailpage
     const kamarId = (await params).kamarId;
   return (
     <div className="mt-16">
-        <DetailKamar roomId={kamarId} />
+        <Suspense fallback>
+            <DetailKamar roomId={kamarId} />
+        </Suspense>
     </div>
   )
 }
