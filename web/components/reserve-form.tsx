@@ -54,6 +54,8 @@ const Reserveform = () => {
                     <p className="text-sm text-red-500 mt-2">Pesan</p>
                 </div>
             </div>
+            <button type="submit" className="px-20 py-3 text-center font-semibold text-shadow-indigo-50 w-full
+            bg-orange-600 rounde-sm cursor-pointer hover:bg-orange-400">Menyimpan</button>
         </form>
     </div>
   )
