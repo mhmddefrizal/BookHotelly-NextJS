@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
-import { differenceInCalendarDays, DifferenceInCalendarDays } from "date-fns";
+import { differenceInCalendarDays, } from "date-fns";
 import { Princess_Sofia } from "next/font/google";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
@@ -164,11 +164,18 @@ export const CreateReserve = async (
 
   // ambil data harga kamar dari database
   const { name, phone } = validatedFields.data;
+  const room = await prisma.room.findUnique({
+    where: { id: roomId },
+    select: { price: true },
+  });
+  if (!room) {
+    return { message: "Kamar tidak ditemukan" };
+  }
   const night = differenceInCalendarDays(endDate, startDate);
   if (night <= 0) {
     return { message: "Tanggal keberangkatan harus lebih besar dari tanggal kedatangan" };
   }
-  const total = night * price;
+  const total = night * room.price;
 
   // simpan data ke database
   let reservationId;
@@ -187,7 +194,7 @@ export const CreateReserve = async (
         data: {
           startDate: startDate,
           endDate: endDate,
-          price: price,
+          price: room.price,
           total: total,
           userId: session.user.id as string,
           Payment: {
@@ -195,6 +202,13 @@ export const CreateReserve = async (
               amount: total,
             },
           },
-
+        },
+      });
+      reservationId = reservation.id;
+    });
   } catch (error) {
+    console.log(error);
+  }
+  // redirect ke halaman checkout
+  redirect(`/checkout/${reservationId}`);
 };
