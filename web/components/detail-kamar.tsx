@@ -46,6 +46,7 @@ const DetailKamar = async ({roomId}:{roomId:string}) => {
                     </div>
                 </div>
                 {/* Reservasio Form */}
+                <Reserveform room={room}/>
             </div>
         </div>
     </div>
