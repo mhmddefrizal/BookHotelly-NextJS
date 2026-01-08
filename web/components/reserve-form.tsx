@@ -22,6 +22,7 @@ const Reserveform = () => {
                 endDate={endDate}
                 minDate={new Date()}
                 selectsRange={true}
+                onChange={handleDateChange}
                 dateFormat={"dd-MM-YYYY"}
                 wrapperClassName="w-full"
                 className="py-2 px-4 rounded-md border border-gray-300 w-full"/>
