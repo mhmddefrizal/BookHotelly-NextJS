@@ -1,13 +1,15 @@
 import { Metadata } from "next"
+import DetailKamar from "@/components/detail-kamar";
+
 export const metadata: Metadata = {
     title: "Kamar Detail",
 }
 
 const KamarDetailpage
  = async({params
-}:{params: Promise<{ kamarid: string }>}
+}:{params: Promise<{ kamarId: string }>}
  ) => {
-    const kamarid = (await params).kamarid;
+    const kamarId = (await.params).kamarId;
   return (
     <div>KamarDetailpage
 
