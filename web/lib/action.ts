@@ -7,6 +7,8 @@ import { redirect } from "next/navigation";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
+import { differenceInCalendarDays, DifferenceInCalendarDays } from "date-fns";
+import { Princess_Sofia } from "next/font/google";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
   if (!image) return { message: "gambar harus diupload terlebih dahulu" };
@@ -159,4 +161,40 @@ export const CreateReserve = async (
       error: validatedFields.error.flatten().fieldErrors,
     };
   }
+
+  // ambil data harga kamar dari database
+  const { name, phone } = validatedFields.data;
+  const night = differenceInCalendarDays(endDate, startDate);
+  if (night <= 0) {
+    return { message: "Tanggal keberangkatan harus lebih besar dari tanggal kedatangan" };
+  }
+  const total = night * price;
+
+  // simpan data ke database
+  let reservationId;
+  try {
+    await prisma.$transaction(async (tx) => {
+      await tx.user.update({
+        data: {
+          name,
+          phone,
+        },
+        where: { id: session.user.id },
+      });
+
+
+      const reservation = await tx.reservation.create({
+        data: {
+          startDate: startDate,
+          endDate: endDate,
+          price: price,
+          total: total,
+          userId: session.user.id as string,
+          Payment: {
+            create: {
+              amount: total,
+            },
+          },
+
+  } catch (error) {
 };
