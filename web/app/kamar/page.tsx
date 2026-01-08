@@ -1,7 +1,8 @@
-import { Metadata } from "next"
+import { Metadata } from "next";
 import { Suspense } from "react";
-import HeaderSection from "@/components/header-section"
-import Main from "@/components/main"
+import HeaderSection from "@/components/header-section";
+import Main from "@/components/main";
+import KamarSkeleton from "@/components/skeleton/kamar-skeleton";
 
 export const metadata: Metadata = {
     title: "Kamar & Tarif",
@@ -13,7 +14,7 @@ const RoomPage = () => {
         <div>
             <HeaderSection title="Kamar & Tarif" subTitle="Lorem ipsum dolor sit amet." />
             <div className="mt-10 px-4">
-                <Suspense fallback={<p>Loading...</p>}>
+                <Suspense fallback={<KamarSkeleton />}>
                     <Main />
                 </Suspense>
             </div>
