@@ -1,21 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoPeopleOutline } from "react-icons/io5";
+import { Room } from "@prisma/client";
 
-const Card = () => {
+const Card = ({room}: {room:Room}) => {
   return (
     <div className="bg-white shadow-lg rounded-sm transition duration-100 hover:shadow-sm">
       <div className="h-[260px] w-auto rounded-t-sm relative">
-        <Image src="/hero.jpg" width={345} height={240} alt="room image" className="w-full h-full object-cover rounded-t-sm" />
+        <Image src={room.image} width={345} height={240} alt="room image" className="w-full h-full object-cover rounded-t-sm" />
       </div>
       <div className="p-8">
         <h4 className="text-2xl font-medium">
-          <Link href="#" className="hover:text-gray-800 transition duration-150">
-            Kamar Mewah
+          <Link href={`/kamar/${room.id}`} className="hover:text-gray-800 transition duration-150">
+            {room.name}
           </Link>
         </h4>
         <h4 className="text-2xl mb-7">
-          <span className="font-semibold text-gray-600">Rp 2100000</span>
+          <span className="font-semibold text-gray-600">{room.price}</span>
           <span className="text-gray-400 text-sm">/Malam</span>
         </h4>
         <div className="flex items-center justify-between">
