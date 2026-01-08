@@ -1,6 +1,6 @@
 "use server";
 
-import { ContactSchema, RoomSchema } from "@/lib/zod";
+import { ContactSchema, RoomSchema, ReserveSchema } from "@/lib/zod";
 import { prisma } from "@/lib/prisma";
 import { error } from "console";
 import { redirect } from "next/navigation";
@@ -146,6 +146,17 @@ export const CreateReserve = async (
 ) => {
   // autentikasi user
   const session = await auth();
-  if(!session || !session.user || !session.user.email) redirect (`/masuk?redirect_url=/kamar/${roomId}`);{
+  if(!session || !session.user || !session.user.email) redirect (`/masuk?redirect_url=/kamar/${roomId}`);
+  const rawData = {
+    name: formData.get("name"),
+    phone: formData.get("phone"),
   };
+
+  // validasi data menggunakan ReserveSchema
+  const validatedFields = ReserveSchema.safeParse(rawData);
+  if (!validatedFields.success) {
+    return {
+      error: validatedFields.error.flatten().fieldErrors,
+    };
+  }
 };
