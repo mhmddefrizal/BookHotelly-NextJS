@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoPeopleOutline } from "react-icons/io5";
 import { Room } from "@prisma/client";
+import { formatCurrency } from "@/lib/utils";
 
 const Card = ({room}: {room:Room}) => {
   return (
@@ -16,7 +17,7 @@ const Card = ({room}: {room:Room}) => {
           </Link>
         </h4>
         <h4 className="text-2xl mb-7">
-          <span className="font-semibold text-gray-600">{room.price}</span>
+          <span className="font-semibold text-gray-600">{formatCurrency(room.price)}</span>
           <span className="text-gray-400 text-sm">/Malam</span>
         </h4>
         <div className="flex items-center justify-between">
