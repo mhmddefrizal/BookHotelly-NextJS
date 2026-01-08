@@ -6,6 +6,7 @@ import { error } from "console";
 import { redirect } from "next/navigation";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
+import { auth } from "@/auth";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
   if (!image) return { message: "gambar harus diupload terlebih dahulu" };
@@ -132,4 +133,19 @@ export const UpdateRoom = async (image: string, prevState: unknown, roomId: stri
   }
   revalidatePath("/admin/kamar");
   redirect("/admin/kamar");
+};
+
+export const CreateReserve = async (
+  // definisikan parameter fungsi CreateReserve
+  roomId: string,
+  startDate: string,
+  endDate: string,
+  prevState: unknown,
+  formData: FormData,
+
+) => {
+  // autentikasi user
+  const session = await auth();
+  if(!session || !session.user || !session.user.email) redirect (`/masuk?redirect_url=/kamar/${roomId}`);{
+  };
 };
