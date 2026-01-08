@@ -16,6 +16,9 @@ const reserveform = () => {
                 dateFormat={"dd-MM-YYYY"}
                 wrapperClassName="w-full"
                 className="py-2 px-4 rounded-md border border-gray-300 w-full"/>
+                <div aria-live="polite" aria-atomic="true">
+                    <p className="text-sm text-red-500 mt-2">Pesan</p>
+                </div>
             </div>
         </form>
     </div>
