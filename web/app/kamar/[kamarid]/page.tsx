@@ -7,6 +7,7 @@ const KamarDetailpage
  = async({params
 }:{params: Promise<{ kamarid: string }>}
  ) => {
+    const kamarid = (await params).kamarid;
   return (
     <div>KamarDetailpage
 
