@@ -69,8 +69,13 @@ const CheckoutDetail = async({reservationId}:{reservationId:string}) => {
                         <td className='py-2 text-right truncate'>{formatDate(reservation.endDate.toISOString())}</td>
                     </tr>
                     <tr>
-                        <td className='py-2'>Durasi Jatuh Tempo</td>
-                        <td className='py-2 text-right truncate'>{formatDate(reservation.endDate.toISOString())}</td>
+                        <td className='py-2'>Durasi</td>
+                        <td className='py-2 text-right truncate'>
+                            {/* menampilkan durasi menginap */}
+                            <span>
+                                {duration} {duration === 1 ? "malam" : "malam"}
+                            </span>
+                        </td>
                     </tr>
                 </tbody>
             </table>
