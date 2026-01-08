@@ -12,7 +12,10 @@ const reserveform = () => {
                 startDate={}
                 endDate={}
                 minDate={}
-                selectsRange={true}/>
+                selectsRange={true}
+                dateFormat={"dd-MM-YYYY"}
+                wrapperClassName="w-full"
+                className="py-2 px-4 rounded-md border border-gray-300 w-full"/>
             </div>
         </form>
     </div>
