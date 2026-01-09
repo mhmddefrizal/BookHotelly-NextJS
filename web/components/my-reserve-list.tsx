@@ -2,13 +2,14 @@ import Image from 'next/image';
 import { getReservationByUserId } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import { formatCurrency, formatDate } from '@/lib/utils';
-import { differenceInCalendarDays, DifferenceInCalendarDays } from 'date-fns';
+import { differenceInCalendarDays } from 'date-fns';
+import Link from 'next/link';
 
 // membuat komponen MyReserveList
 const MyReserveList = async () => {
     // mengambil data reservasi berdasarkan ID pengguna
     const reservations = await getReservationByUserId();
-    if (!reservations ) return notFound();
+    if (!reservations) return notFound();
     return (
         <div>
             {reservations.map((item) => (
@@ -54,8 +55,8 @@ const MyReserveList = async () => {
                                 </div>
                                 <div className="flex items-center justify-between text-sm font-medium text-gray-900 truncate">
                                     <span>Durasi</span>
-                                    <span>{differenceInCalendarDays(item.endDate, item.startDate)} 
-                                        <span className='ml-1'>Malam</span> 
+                                    <span>{differenceInCalendarDays(item.endDate, item.startDate)}
+                                        <span className='ml-1'>Malam</span>
                                     </span>
                                 </div>
                                 <div className="flex items-center justify-between text-sm font-medium text-gray-900 truncate">
@@ -65,7 +66,22 @@ const MyReserveList = async () => {
                             </div>
                         </div>
                     </div>
-                    <div className=""></div>
+                    {/* buat tombol bayar direct ke halaman checkout */}
+                    <div className="flex items-end justify-end absolute inset-4">
+                        {item.Payment?.status === 'unpaid' ? (
+                            <Link
+                                href={`/checkout/${item.id}`}
+                                className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
+                            >
+                                Bayar Sekarang
+                            </Link>
+                        ) : (
+                        <Link
+                            href={`/reservasisaya/${item.id}`}
+                            className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700"
+                        ></Link>
+                        )}
+                    </div>
                 </div>
             ))}
         </div>
