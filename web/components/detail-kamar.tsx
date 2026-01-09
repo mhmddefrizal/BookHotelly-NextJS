@@ -14,7 +14,7 @@ const DetailKamar = async ({roomId}:{roomId:string}) => {
         getDisabledRoomById(roomId),
     ]);
     // jika kamar tidak ditemukan, tampilkan halaman 404
-    if (!room) return notFound();
+    if (!room || !disabledDate) return notFound();
   return (
     <div className="max-w-screen-xl py-16 px-4 grid lg:grid-cols-12 gap-8 mx-auto">
         {/* detail kamar */}
