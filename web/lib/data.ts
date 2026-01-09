@@ -104,3 +104,28 @@ export const getReservationById = async (id: string) => {
     console.log(error);
   }
 };
+
+// fungsi untuk mengambil data kamar yang tidak tersedia berdasarkan ID kamar
+export const getDisabledRoomById = async (roomId: string) => {
+  const session = await auth();
+  if (!session || !session.user) {
+    throw new Error("Unauthorized Access");
+  }
+  try {
+    const result = await prisma.reservation.findMany({
+      select: {
+        startDate: true,
+        endDate: true,
+      },
+      where: {
+        roomId: roomId,
+        Payment: {
+          status: { not: "failure" },
+        },
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
