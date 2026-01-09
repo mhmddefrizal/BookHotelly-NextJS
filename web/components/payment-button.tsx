@@ -3,6 +3,15 @@
 import { useTransition } from 'react';
 import { reservationProps } from '@/types/reservation';
 
+// menambahkan tipe global untuk window.snap
+declare global {
+    interface Window {
+        snap: {
+            pay: (token: string) => void;
+        };
+    }
+}
+
 // tombol pembayaran
 const PaymentButton = ({
     reservation,
@@ -19,8 +28,13 @@ const PaymentButton = ({
                     method: 'POST',
                     body : JSON.stringify(reservation),
                 });
+                const { token } = await response.json();
+                if(token) {
+                    // redirect ke halaman pembayaran Midtrans
+                    window.snap.pay(token);
+                }
             } catch (error) {
-                
+                console.error('gagal membayar', error);
             }
         });
     }
