@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getRoomDetailById } from "@/lib/data";
+import { getRoomDetailById, getDisabledRoomById } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { IoCheckmark, IoPeopleOutline } from "react-icons/io5";
 import { formatCurrency } from "@/lib/utils";
@@ -8,7 +8,11 @@ import Reserveform from "./reserve-form";
 // komponen detail kamar
 const DetailKamar = async ({roomId}:{roomId:string}) => {
     // mengambil data kamar berdasarkan ID
-    const room =  await getRoomDetailById(roomId);
+    const [room, disabledDate] =  await Promise.all([
+        // menambah promise untuk kamar yang tidak tersedia
+        getRoomDetailById(roomId),
+        getDisabledRoomById(roomId),
+    ]);
     // jika kamar tidak ditemukan, tampilkan halaman 404
     if (!room) return notFound();
   return (
@@ -47,7 +51,7 @@ const DetailKamar = async ({roomId}:{roomId:string}) => {
                     </div>
                 </div>
                 {/* Reservasio Form */}
-                <Reserveform room={room}/>
+                <Reserveform room={room} disabledDate={disabledDate}/>
             </div>
         </div>
     </div>
