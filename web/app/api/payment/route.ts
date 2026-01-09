@@ -7,3 +7,8 @@ const snap = new Midtrans.Snap({
   serverKey: process.env.MIDTRANS_SERVER_KEY,
   clientKey: process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY,
 });
+
+// Handle POST request to create a payment transaction
+export const POST = async (request: Request) => {
+    const reservation = await request.json();
+}
