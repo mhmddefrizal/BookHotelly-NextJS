@@ -8,4 +8,12 @@ export const POST = async (request: Request) => {
     const reservationId = data.order_id;
 
     let responseData = null;
+
+    // mengupdate status pembayaran berdasarkan notifikasi yang diterima
+    const transactionStatus = data.transaction_status;
+    const paymentType = data.payment_type || null;
+    const fraudStatus = data.fraud_status;
+    const statusCode = data.status_code;
+    const grossAmount = data.gross_amount;
+    const signatureKey = data.signature_key;
 }
