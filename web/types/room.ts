@@ -22,7 +22,7 @@ export type RoomDetailProps = Prisma.RoomGetPayload<{
 }>;
 
 // tipe data untuk properti disabledDate
-export type DisabledDateProps = prisma.ReservationGetPayload<{
+export type DisabledDateProps = Prisma.ReservationGetPayload<{
     select: {
         startDate: true;
         endDate: true;
