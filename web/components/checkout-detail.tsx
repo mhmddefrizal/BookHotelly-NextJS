@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { getReservationById } from '@/lib/data';
 import { formatDate, formatCurrency } from '@/lib/utils';
 import { differenceInCalendarDays } from 'date-fns';
+import PaymentButton from '@/components/payment-button';
 
 
 // import fungsi untuk mengambil data reservasi berdasarkan ID
@@ -36,6 +37,7 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                     </div>
                 </div>
                 {/* tombol bayar */}
+                <PaymentButton reservation={reservation} />
             </div>
             <div className="border border-gray-300 px-3 py-5 rounded-md p-5 bg-slate-50">
                 <table className='w-full'>
