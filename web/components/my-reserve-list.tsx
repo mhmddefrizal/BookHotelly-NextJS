@@ -12,6 +12,7 @@ const MyReserveList = async () => {
     if (!reservations) return notFound();
     return (
         <div>
+            {/* menampilkan daftar reservasi */}
             {reservations.map((item) => (
                 <div key={item.id} className="mb-4">
                     <div className="bg-white shadow pb-4 md:pb-0 relative">
