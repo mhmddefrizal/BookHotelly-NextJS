@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import CheckoutDetail from '@/components/checkout-detail'
+import CheckoutDetail from '@/components/checkout-detail';
+import Script from 'next/script';
 
 // metadata halaman checkout
 export const metadata: Metadata = {
@@ -18,6 +19,12 @@ const CheckoutPage = async ({ params }: { params: Promise<{ id: string }> }) => 
             <Suspense fallback={<p>Loading...</p>}>
                 <CheckoutDetail reservationId={reservationId} />
             </Suspense>
+            {/* menyisipkan script Midtrans Snap.js */}
+            <Script
+                src="https://app.sandbox.midtrans.com/snap/snap.js"
+                data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY}
+                strategy="lazyOnload"
+            />
         </div>
     )
 }
