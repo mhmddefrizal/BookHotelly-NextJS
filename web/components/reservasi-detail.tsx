@@ -106,7 +106,10 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                     </tr>
                 </tbody>
                 <tfoot>
-                    
+                    <tr>
+                        <td className='px-6 py-3 font-bold' colSpan={2}>Total</td>
+                        <td className='px-6 py-3 font-bold' text-right colSpan={3}>999999</td>
+                    </tr>
                 </tfoot>
             </table>
         </div>
