@@ -112,7 +112,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                         <td className='px-6 py-4 '>{formatDate(reservasi.startDate.toISOString())}</td>
                         <td className='px-6 py-4 '>{formatDate(reservasi.EndDate.toISOString())}</td>
                         <td className='px-6 py-4 '>{differenceInCalendarDays(reservasi.endDate, reservasi.startDate)}Malam</td>
-                        <td className='px-6 py-4 text-right'>999999</td>
+                        <td className='px-6 py-4 text-right'>{reservasi.Payment && formatCurrency(reservasi.Payment.amount)}</td>
                     </tr>
                 </tbody>
                 <tfoot>
