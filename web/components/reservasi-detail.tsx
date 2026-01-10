@@ -105,6 +105,9 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                         <td className='px-6 py-4 text-right'>999999</td>
                     </tr>
                 </tbody>
+                <tfoot>
+                    
+                </tfoot>
             </table>
         </div>
     </div>
