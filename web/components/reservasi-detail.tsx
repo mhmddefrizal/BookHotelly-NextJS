@@ -85,7 +85,7 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                 <thead className='text-xs text-gray-700 uppercase bg-gray-100'>
                     <tr>
                         <th className='px-6 py-3'>Kamar</th>
-                        <th className='px-6 py-3'>Kedatangan</th>
+                        <th className='px-6 py-3 min-w-60 md:min-w-0'>Kedatangan</th>
                         <th className='px-6 py-3'></th>
                         <th className='px-6 py-3'></th>
                         <th className='px-6 py-3'></th>
