@@ -1,6 +1,10 @@
 import { getReservationById } from "@/lib/data"
 
-const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
+const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
+
+    const reservasi = await getReservationById(reseservasiId);
+
+
   return (
     <div className='w-full p-4 bg-white border border-gray-300 rounded-sm shadow'>
         <div className='grid md:grid-cols-2 md:gap-5'>
