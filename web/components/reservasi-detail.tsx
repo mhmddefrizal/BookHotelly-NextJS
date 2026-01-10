@@ -73,7 +73,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                             <p className='text-sm font-medium text-gray-800 truncate'>Metode Pembayaran</p>
                         </div>
                         <div className='inline-flex items-center text-base font-semibold text-gray-900'>
-                            Metode Pembayaran
+                            {reservasi.Payment?.method ? reservasi.Payment.method.replace("_", " "): null}
                         </div>
                     </div>
                 </li>
