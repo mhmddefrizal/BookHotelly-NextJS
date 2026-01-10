@@ -30,7 +30,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                             <p className='text-sm font-medium text-gray-800 truncate'>Tanggal buku</p>
                         </div>
                         <div className='inline-flex items-center text-base font-semibold text-gray-900'>
-                            #Tanggal Buku
+                            {formatDate(reservasi.createdAt.toISOString())}
                         </div>
                     </div>
                 </li>
