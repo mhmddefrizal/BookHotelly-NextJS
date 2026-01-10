@@ -166,10 +166,6 @@ export const getReservationByUserId = async () => {
 
 // fungsi untuk mengambil total pendapatan dan total reservasi
 export const getRevenueAndReserve = async () => {
-  const session = await auth();
-  if (!session || !session.user) {
-    throw new Error("Unauthorized Access");
-  }
   try {
     const result = await prisma.reservation.aggregate({
       _count: true,
@@ -180,6 +176,29 @@ export const getRevenueAndReserve = async () => {
         Payment: {
           status: { not: "failure" },
         },
+      },
+    });
+    return {
+      revenue: result._sum.price || 0,
+      reserve: result._count,
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// fungsi untuk mengambil total pelanggan unik
+export const getTotalCustomers = async () => {
+  try {
+    const result = await prisma.reservation.findMany({
+      distinct: ['userId'],
+      where: {
+        Payment: {
+          status: { not: "failure" },
+        },
+      },
+      select: {
+        userId: true,
       },
     });
     return result;
