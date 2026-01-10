@@ -1,12 +1,11 @@
-import { getRooms } from "@/lib/data";
+import { getReservations } from "@/lib/data";
 import Image from "next/image";
 import { formatDate, formatCurrency } from "@/lib/utils";
-import { DeleteButton, EditButton } from "@/components/admin/kamar/button";
 
 // komponen daftar reservasi
 const ReservationList = async () => {
-    const rooms = await getRooms();
-    if (!rooms?.length) return <p>Tidak Ditemukan kamar</p>;
+    const reservation = await getReservations();
+    if (!reservation) return <p>Tidak Ditemukan Reservasi</p>;
     return (
         // tabel kamar
         <div className='bg-white p-4 mt-5 shadow-sm'>
@@ -14,23 +13,26 @@ const ReservationList = async () => {
                 <thead>
                     <tr>
                         <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Gambar Kamar</th>
+                        <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Nama</th>
+                        <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Kedatangan</th>
+                        <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Kepergian</th>
                         <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Nama Kamar</th>
                         <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Harga</th>
                         <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase text-left'>Dibuat Sejak</th>
-                        <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase'>Ket.</th>
+                        <th className='px-6 py-3 w-32 text-sm font-bold text-gray-700 uppercase'>Status</th>
                     </tr>
                 </thead>
-                <tbody className='divide-y Idivide-gray-200'>
+                <tbody className='divide-y divide-gray-200'>
                     {/* isi tabel */}
-                    {rooms.map((room) => (
+                    {reservation.map((reserve) => (
                         <tr key={room.id} className='hover:bg-gray-100'>
                             <td className='px-6 py-4'>
                                 <div className="h-20 w-32 relative">
-                                    <Image src={room.image} fill sizes="20vw" alt=" room image" className="object-cover" />
+                                    <Image src={reserve.Room.image} fill sizes="20vw" alt=" room image" className="object-cover" />
                                 </div>
                             </td>
                             {/* nama kamar */}
-                            <td className='px-6 py-4'>{room.name}</td>
+                            <td className='px-6 py-4'>{reserve.User.name}</td>
                             {/* harga kamar */}
                             <td className='px-6 py-4'>{formatCurrency(room.price)}</td>
                             {/* tanggal dibuat */}
