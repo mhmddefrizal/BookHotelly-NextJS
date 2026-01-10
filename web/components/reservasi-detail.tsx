@@ -99,10 +99,10 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                                 <span>Harga : 999999</span>
                             </div>
                         </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td className='px-6 py-4 '> Kedatangan</td>
+                        <td className='px-6 py-4 '>Keberangkatan</td>
+                        <td className='px-6 py-4 '>1 Malam</td>
+                        <td className='px-6 py-4 text-right'>999999</td>
                     </tr>
                 </tbody>
             </table>
