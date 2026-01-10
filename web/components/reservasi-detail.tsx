@@ -40,7 +40,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                             <p className='text-sm font-medium text-gray-800 truncate'>Nama</p>
                         </div>
                         <div className='inline-flex items-center text-base font-semibold text-gray-900'>
-                            Nama
+                            {reservasi.User.name}
                         </div>
                     </div>
                 </li>
