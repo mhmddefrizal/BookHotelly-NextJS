@@ -26,7 +26,7 @@ const DashboardCards = async () => {
                 </div>
                 <div className="px-4 text-gray-400">
                     <h3 className='text-sm tracking-winder'>Total Penjualan</h3>
-                    <p className='text-3xl'>999</p>
+                    <p className='text-3xl'>{formatCurrency(data.revenue)}</p>
                 </div>
             </div>
             {/* card untuk menampilkan total pemesanan */}
@@ -37,7 +37,7 @@ const DashboardCards = async () => {
                 </div>
                 <div className="px-4 text-gray-400">
                     <h3 className='text-sm tracking-winder'>Total Pemesanan</h3>
-                    <p className='text-3xl'>999</p>
+                    <p className='text-3xl'>{data.reserve}</p>
                 </div>
             </div>
             {/* card untuk menampilkan total pengguna */}
@@ -48,7 +48,7 @@ const DashboardCards = async () => {
                 </div>
                 <div className="px-4 text-gray-400">
                     <h3 className='text-sm tracking-winder'>Total Pengguna</h3>
-                    <p className='text-3xl'>999</p>
+                    <p className='text-3xl'>{customers.length}</p>
                 </div>
             </div>
         </div>
