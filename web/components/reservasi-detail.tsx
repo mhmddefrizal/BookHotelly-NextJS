@@ -92,8 +92,8 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
+                    <tr className='bg-white border-b'>
+                        <td className='px-6 py-4 '></td>
                         <td></td>
                         <td></td>
                         <td></td>
