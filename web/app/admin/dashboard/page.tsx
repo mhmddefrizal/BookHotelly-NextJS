@@ -1,4 +1,11 @@
-import DashboardCards from '@/components/admin/dashboard-cards'
+import { Metadata } from 'next';
+import DashboardCards from '@/components/admin/dashboard-cards';
+
+// Metadata untuk halaman dashboard admin
+export const metadata: Metadata = {
+  title: 'Dashboard Admin',
+  description: 'Halaman dashboard untuk admin',
+};
 
 const HalamanDashboard = () => {
   return (
