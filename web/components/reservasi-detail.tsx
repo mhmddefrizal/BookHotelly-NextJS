@@ -96,6 +96,7 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                         <td className='px-6 py-4 '>
                             <div className="flex flex-col">
                                 <span className='font-medium text-gray-800 whitespace-nowrap'>Nama Kamar</span>
+                                <span>Harga : 999999</span>
                             </div>
                         </td>
                         <td></td>
