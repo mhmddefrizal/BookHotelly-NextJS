@@ -109,8 +109,8 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                                 <span>Harga : {reservasi.Room.price}</span>
                             </div>
                         </td>
-                        <td className='px-6 py-4 '> Kedatangan</td>
-                        <td className='px-6 py-4 '>Keberangkatan</td>
+                        <td className='px-6 py-4 '>{formatDate(reservasi.startDate.toISOString())}</td>
+                        <td className='px-6 py-4 '>{formatDate(reservasi.EndDate.toISOString())}</td>
                         <td className='px-6 py-4 '>1 Malam</td>
                         <td className='px-6 py-4 text-right'>999999</td>
                     </tr>
