@@ -15,6 +15,16 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                         </div>
                     </div>
                 </li>
+                <li className='py-2'>
+                    <div className="flex items-center">
+                        <div className="flex-1 min-w-0 ms-4">
+                            <p className='text-sm font-medium text-gray-800 truncate'>Tanggal buku</p>
+                        </div>
+                        <div className='inline-flex items-center text-base font-semibold text-gray-900'>
+                            #Tanggal Buku
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
