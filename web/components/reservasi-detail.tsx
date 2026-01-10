@@ -79,6 +79,29 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                 </li>
             </ul>
         </div>
+        {/* table */}
+        <div className="relative overflow-x-auto mt-3 py-6">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
   )
 }
