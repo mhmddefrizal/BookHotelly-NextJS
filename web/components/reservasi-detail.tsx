@@ -88,7 +88,7 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                         <th className='px-6 py-3 min-w-60 md:min-w-0'>Kedatangan</th>
                         <th className='px-6 py-3'>Keberangkatan</th>
                         <th className='px-6 py-3'>Durasi</th>
-                        <th className='px-6 py-3'></th>
+                        <th className='px-6 py-3'>Sub Jumlah</th>
                     </tr>
                 </thead>
                 <tbody>
