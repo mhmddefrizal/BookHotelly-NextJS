@@ -17,7 +17,7 @@ const DashboardCards = async () => {
     }
 
     return (
-        <div className="grid md:grid-cols-3 gap-5 pb-10">
+        <div className="grid md:grid-cols-3 gap-5 pb-10 mt-5">
             {/* card untuk menampilkan total penjualan */}
             <div className="flex items-center bg-white border rounded-md overflow-hidden shadow-sm">
                 <div className="p-4 bg-green-400">
