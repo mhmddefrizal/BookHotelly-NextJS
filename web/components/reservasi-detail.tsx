@@ -95,7 +95,7 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                     <tr className='bg-white border-b'>
                         <td className='px-6 py-4 '>
                             <div className="flex flex-col">
-                                <span>Nama Kamar</span>
+                                <span className='font-medium text-gray-800 whitespace-nowrap'>Nama Kamar</span>
                             </div>
                         </td>
                         <td></td>
