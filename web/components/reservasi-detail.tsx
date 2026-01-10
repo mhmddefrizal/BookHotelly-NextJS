@@ -81,7 +81,7 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
         </div>
         {/* table */}
         <div className="relative overflow-x-auto mt-3 py-6">
-            <table>
+            <table className='w-full text-sm text-left text-gray-600'>
                 <thead>
                     <tr>
                         <th></th>
