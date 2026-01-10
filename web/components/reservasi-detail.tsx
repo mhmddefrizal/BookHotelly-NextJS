@@ -35,6 +35,16 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                         </div>
                     </div>
                 </li>
+                <li className='py-2'>
+                    <div className="flex items-center">
+                        <div className="flex-1 min-w-0 ms-4">
+                            <p className='text-sm font-medium text-gray-800 truncate'>Email</p>
+                        </div>
+                        <div className='inline-flex items-center text-base font-semibold text-gray-900'>
+                            Email
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
