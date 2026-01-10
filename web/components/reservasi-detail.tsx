@@ -3,6 +3,9 @@ import { getReservationById } from "@/lib/data"
 const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
 
     const reservasi = await getReservationById(reseservasiId);
+    if (!reservasi) return <h1>Tidak Ditemukan Data</h1>;
+    
+}
 
 
   return (
