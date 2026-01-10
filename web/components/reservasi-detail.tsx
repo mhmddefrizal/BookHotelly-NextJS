@@ -72,7 +72,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                         <div className="flex-1 min-w-0 ms-4">
                             <p className='text-sm font-medium text-gray-800 truncate'>Metode Pembayaran</p>
                         </div>
-                        <div className='inline-flex items-center text-base font-semibold text-gray-900'>
+                        <div className='inline-flex items-center text-base font-semibold text-gray-900 capitalize'>
                             {reservasi.Payment?.method ? reservasi.Payment.method.replace("_", " "): null}
                         </div>
                     </div>
@@ -83,7 +83,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                             <p className='text-sm font-medium text-gray-800 truncate'>Status Pembayaran</p>
                         </div>
                         <div className='inline-flex items-center text-base font-semibold text-gray-900'>
-                            Status Pembayaran
+                            {reservasi.Payment?.status}
                         </div>
                     </div>
                 </li>
