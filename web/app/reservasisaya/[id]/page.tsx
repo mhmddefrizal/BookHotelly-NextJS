@@ -1,7 +1,11 @@
 import React from 'react'
 
 const reservasiDetailsaya
- = async () => {
+ = async ({
+    params
+ } : {
+    params: Promise<{ id: string }>
+ }) => {
   return (
     <div>reservasiDetailsaya
         
