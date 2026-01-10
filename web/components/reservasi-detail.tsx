@@ -1,4 +1,4 @@
-import React from 'react'
+import { getReservationById } from "@/lib/data"
 
 const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
   return (
