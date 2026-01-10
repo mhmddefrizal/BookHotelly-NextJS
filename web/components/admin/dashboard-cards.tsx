@@ -1,6 +1,7 @@
 import { getRevenueAndReserve, getTotalCustomers } from '@/lib/data';
 import {LuChartArea, LuShoppingCart, LuUser} from 'react-icons/lu';
 import { formatCurrency } from '@/lib/utils';
+import { notFound } from 'next/navigation';
 
 // buat card dashboard admin
 const DashboardCards = async () => {
@@ -9,6 +10,12 @@ const DashboardCards = async () => {
         getRevenueAndReserve(),
         getTotalCustomers(),
     ]);
+
+    // jika data tidak ada, tampilkan halaman not found
+    if (!data || !customers) {
+        return notFound();
+    }
+
     return (
         <div className="grid md:grid-cols-3 gap-5 pb-10">
             {/* card untuk menampilkan total penjualan */}
