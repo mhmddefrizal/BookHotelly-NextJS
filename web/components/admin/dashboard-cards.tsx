@@ -17,7 +17,7 @@ const DashboardCards = () => {
             </div>
             {/* card untuk menampilkan total pemesanan */}
             <div className="flex items-center bg-white border rounded-md overflow-hidden shadow-sm">
-                <div className="p-4 bg-green-400">
+                <div className="p-4 bg-red-400">
                     {/* content */}
                     <LuShoppingCart className="text-white" size={12} />
                 </div>
@@ -28,7 +28,7 @@ const DashboardCards = () => {
             </div>
             {/* card untuk menampilkan total pengguna */}
             <div className="flex items-center bg-white border rounded-md overflow-hidden shadow-sm">
-                <div className="p-4 bg-green-400">
+                <div className="p-4 bg-blue-400">
                     {/* content */}
                     <LuUser className="text-white" size={12} />
                 </div>

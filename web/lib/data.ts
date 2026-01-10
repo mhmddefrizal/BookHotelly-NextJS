@@ -163,3 +163,28 @@ export const getReservationByUserId = async () => {
     console.log(error);
   }
 };
+
+// fungsi untuk mengambil total pendapatan dan total reservasi
+export const getRevenueAndReserve = async () => {
+  const session = await auth();
+  if (!session || !session.user) {
+    throw new Error("Unauthorized Access");
+  }
+  try {
+    const result = await prisma.reservation.aggregate({
+      _count: true,
+      _sum: {
+        price: true,
+      },
+      where: {
+        Payment: {
+          status: { not: "failure" },
+        },
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
