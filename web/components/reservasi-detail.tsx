@@ -105,8 +105,8 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                     <tr className='bg-white border-b'>
                         <td className='px-6 py-4 '>
                             <div className="flex flex-col">
-                                <span className='font-medium text-gray-800 whitespace-nowrap'>Nama Kamar</span>
-                                <span>Harga : 999999</span>
+                                <span className='font-medium text-gray-800 whitespace-nowrap'>{reservasi.Room.name}</span>
+                                <span>Harga : </span>
                             </div>
                         </td>
                         <td className='px-6 py-4 '> Kedatangan</td>
