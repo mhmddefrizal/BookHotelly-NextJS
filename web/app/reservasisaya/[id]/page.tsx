@@ -1,5 +1,6 @@
 import { Metadata } from "next"
 import ReservasiDetail from "@/components/reservasi-detail"
+import { Suspense } from "react"
 
 export const metadata: Metadata = {
     title: "Detail Reservasi",
