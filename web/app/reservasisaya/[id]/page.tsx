@@ -6,6 +6,8 @@ const reservasiDetailsaya
  } : {
     params: Promise<{ id: string }>
  }) => {
+
+    const reservasiId = (await params).id
   return (
     <div>reservasiDetailsaya
         
