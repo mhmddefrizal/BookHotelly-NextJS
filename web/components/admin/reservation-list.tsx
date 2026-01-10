@@ -25,26 +25,29 @@ const ReservationList = async () => {
                 <tbody className='divide-y divide-gray-200'>
                     {/* isi tabel */}
                     {reservation.map((reserve) => (
-                        <tr key={room.id} className='hover:bg-gray-100'>
+                        <tr key={reserve.id} className='hover:bg-gray-100'>
                             <td className='px-6 py-4'>
                                 <div className="h-20 w-32 relative">
                                     <Image src={reserve.Room.image} fill sizes="20vw" alt=" room image" className="object-cover" />
                                 </div>
                             </td>
-                            {/* nama kamar */}
+                            {/* nama User */}
                             <td className='px-6 py-4'>{reserve.User.name}</td>
+                            {/* tanggal datang */}
+                            <td className='px-6 py-4'>{formatDate(reserve.startDate.toString())}</td>
+                            {/* tanggal pergi */}
+                            <td className='px-6 py-4'>{formatDate(reserve.endDate.toString())}</td>
+                            {/* nama kamar */}
+                            <td className='px-6 py-4'>{reserve.Room.name}</td>
                             {/* harga kamar */}
-                            <td className='px-6 py-4'>{formatCurrency(room.price)}</td>
+                            <td className='px-6 py-4'>{formatCurrency(reserve.price)}</td>
                             {/* tanggal dibuat */}
-                            <td className='px-6 py-4'>{formatDate(room.createdAt.toString())}</td>
-                            {/* tombol aksi */}
+                            <td className='px-6 py-4'>{formatDate(reserve.createdAt.toString())}</td>
+                            {/* status */}
                             <td className='px-6 py-4 text-right'>
-                                <div className="flex items-center gap-1 justify-center">
-                                    {/* tombol edit */}
-                                    <EditButton id={room.id} />
-                                    {/* tombol hapus */}
-                                    <DeleteButton id={room.id} image={room.image} />
-                                </div>
+                                <span className="capitalize">
+                                    {reserve.Payment?.status}
+                                </span>
                             </td>
                         </tr>
                     ))}
