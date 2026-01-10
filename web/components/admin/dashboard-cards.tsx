@@ -1,7 +1,14 @@
-import {LuChartArea, LuShoppingCart, LuUser} from 'react-icons/lu'
+import { getRevenueAndReserve, getTotalCustomers } from '@/lib/data';
+import {LuChartArea, LuShoppingCart, LuUser} from 'react-icons/lu';
+import { formatCurrency } from '@/lib/utils';
 
 // buat card dashboard admin
-const DashboardCards = () => {
+const DashboardCards = async () => {
+    // ambil data pendapatan dan reservasi
+    const [data, customers] =await Promise.all([
+        getRevenueAndReserve(),
+        getTotalCustomers(),
+    ]);
     return (
         <div className="grid md:grid-cols-3 gap-5 pb-10">
             {/* card untuk menampilkan total penjualan */}
