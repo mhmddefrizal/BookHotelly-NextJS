@@ -46,6 +46,9 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
                     </div>
                 </li>
             </ul>
+            <ul>
+                
+            </ul>
         </div>
     </div>
   )
