@@ -1,6 +1,7 @@
 import { getReservationById } from "@/lib/data"
 import { formatCurrency, formatDate } from "@/lib/utils";
 import {differenceInCalendarDays} from "date-fns";
+import { email } from "zod";
 
 const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
 
@@ -50,7 +51,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                             <p className='text-sm font-medium text-gray-800 truncate'>Email</p>
                         </div>
                         <div className='inline-flex items-center text-base font-semibold text-gray-900'>
-                            Email
+                            {reservasi.User.email}
                         </div>
                     </div>
                 </li>
