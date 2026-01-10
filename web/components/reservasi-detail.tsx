@@ -7,7 +7,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
     const reservasi = await getReservationById(reseservasiId);
     if (!reservasi) return <h1>Tidak Ditemukan Data</h1>;
 
-}
+
 
 
   return (
@@ -20,7 +20,7 @@ const ReservasiDetail = async ({reseservasiId} : {reseservasiId: string}) => {
                             <p className='text-sm font-medium text-gray-800 truncate'>Reservasi ID</p>
                         </div>
                         <div className='inline-flex items-center text-base font-semibold text-gray-900'>
-                            #reservasi Id
+                            #{reservasi.id}
                         </div>
                     </div>
                 </li>
