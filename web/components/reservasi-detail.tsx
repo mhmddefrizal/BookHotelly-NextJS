@@ -84,11 +84,11 @@ const ReservasiDetail = ({reseservasiId} : {reseservasiId: string}) => {
             <table className='w-full text-sm text-left text-gray-600'>
                 <thead className='text-xs text-gray-700 uppercase bg-gray-100'>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th className='px-6 py-3'>Kamar</th>
+                        <th className='px-6 py-3'></th>
+                        <th className='px-6 py-3'></th>
+                        <th className='px-6 py-3'></th>
+                        <th className='px-6 py-3'></th>
                     </tr>
                 </thead>
                 <tbody>
