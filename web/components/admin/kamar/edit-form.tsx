@@ -10,13 +10,7 @@ import { RoomProps } from "@/types/room";
 import { is } from "zod/locales";
 import clsx from "clsx";
 
-const EditForm = ({ 
-    amenities,
-    room,
-}: { 
-    amenities: Amenities[] 
-    room: RoomProps;
-}) => {
+const EditForm = ({ amenities, room }: { amenities: Amenities[]; room: RoomProps }) => {
   // buat useRef untuk input file dari form upload
   const inputFileRef = useRef<HTMLInputElement>(null);
 
@@ -66,15 +60,12 @@ const EditForm = ({
     });
   };
 
-// buat useActionState untuk menangani pengiriman form 
-  const [state, formAction, isPending] = useActionState(
-    (_state, formData) => UpdateRoom(room.id, formData, image),
-    null
-);
+  // buat useActionState untuk menangani pengiriman form
+  const [state, formAction, isPending] = useActionState((_state, formData) => UpdateRoom(room.id, formData, image), null);
 
-//   buat array berisi id amenities yang sudah dipilih
+  //   buat array berisi id amenities yang sudah dipilih
   const checkedAmenities = room.RoomAmenities.map((item) => item.amenitiesId);
-  
+
   return (
     <form action={formAction}>
       <div className="grid md:grid-cols-12 gap-5">
@@ -151,14 +142,13 @@ const EditForm = ({
           ) : null}
           <button
             type="submit"
-            className={clsx(
-              "bg-blue-600 text-white w-full hover:bg-blue-800 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer", {
-              'opacity-50 cursor-progress': isPending,
+            className={clsx("bg-blue-600 text-white w-full hover:bg-blue-800 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer", {
+              "opacity-50 cursor-progress": isPending,
             })}
             disabled={isPending}
           >
             {/* Simpan */}
-            {isPending ? <BarLoader /> : 'memperbarui'}
+            {isPending ? <BarLoader /> : "memperbarui"}
           </button>
         </div>
       </div>
