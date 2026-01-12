@@ -8,7 +8,7 @@ import { CreateReserve } from "@/lib/action";
 import { RoomDetailProps, DisabledDateProps } from "@/types/room";
 import clsx from "clsx";
 
-const Reserveform = ({ room, disabledDate }: { room: RoomDetailProps; disabledDate: DisabledDateProps[] }) => {
+const Reserveform = ({ room, disabledDate }: { room: RoomDetailProps; disabledDate: DisabledDateProps }) => {
   const StartDate = new Date();
   const EndDate = addDays(StartDate, 1);
 
