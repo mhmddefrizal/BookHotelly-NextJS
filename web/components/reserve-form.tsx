@@ -22,7 +22,7 @@ const Reserveform = ({ room, disabledDate }: { room: RoomDetailProps; disabledDa
   };
 
   // gunakan useActionState untuk menghubungkan form dengan action createReserve
-  const [state, formAction, isPending] = useActionState(CreateReserve.bind(null, room.id, room.price, startDate, endDate), null);
+  const [state, formAction, isPending] = useActionState((prevState: unknown, formData: FormData) => CreateReserve(room.id, startDate.toISOString(), endDate.toISOString(), prevState, formData), null);
 
   // menyiapkan tanggal yang tidak tersedia untuk DatePicker
   const excludeDates = disabledDate.map((item) => {
