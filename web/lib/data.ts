@@ -16,10 +16,6 @@ export const getAmenities = async () => {
 
 // fungsi untuk mengambil data kamar
 export const getRooms = async () => {
-  const session = await auth();
-  if (!session || !session.user) {
-    throw new Error("Unauthorized Access");
-  }
   try {
     const result = await prisma.room.findMany({
       orderBy: { createdAt: "desc" },
@@ -57,13 +53,12 @@ export const getRoomDetailById = async (roomId: string) => {
       include: {
         RoomAmenities: {
           include: {
-            Amenities:
-            {
+            Amenities: {
               select: {
-                name: true, 
-              }
-            }
-          }
+                name: true,
+              },
+            },
+          },
         },
       },
     });
@@ -181,7 +176,7 @@ export const getRevenueAndReserve = async () => {
     return {
       revenue: result._sum.price || 0,
       reserve: result._count,
-    }
+    };
   } catch (error) {
     console.log(error);
   }
@@ -191,7 +186,7 @@ export const getRevenueAndReserve = async () => {
 export const getTotalCustomers = async () => {
   try {
     const result = await prisma.reservation.findMany({
-      distinct: ['userId'],
+      distinct: ["userId"],
       where: {
         Payment: {
           status: { not: "failure" },
@@ -210,7 +205,7 @@ export const getTotalCustomers = async () => {
 // fungsi untuk mengecualikan akses dan mengambil semua data reservasi
 export const getReservations = async () => {
   const session = await auth();
-  if (!session || !session.user || !session.user.id || session.user.role !== 'ADMIN' && session.user.role !== 'admin') {
+  if (!session || !session.user || !session.user.id || (session.user.role !== "ADMIN" && session.user.role !== "admin")) {
     throw new Error("Unauthorized Access");
   }
   try {

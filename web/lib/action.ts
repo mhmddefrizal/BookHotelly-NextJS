@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import { del } from "@vercel/blob";
 import { revalidatePath } from "next/cache";
 import { auth } from "@/auth";
-import { differenceInCalendarDays, } from "date-fns";
+import { differenceInCalendarDays } from "date-fns";
 import { Princess_Sofia } from "next/font/google";
 
 export const saveRoom = async (image: string, prevState: unknown, formData: FormData) => {
@@ -88,10 +88,10 @@ export const DeleteRoom = async (id: string, image: string) => {
     console.log(error);
   }
   revalidatePath("/admin/kamar");
-}
+};
 
 // Perbarui kamar
-export const UpdateRoom = async (image: string, prevState: unknown, roomId: string, formData: FormData) => {
+export const UpdateRoom = async (roomId: string, formData: FormData, image: string) => {
   if (!image) return { message: "gambar harus diupload terlebih dahulu" };
 
   const rawData = {
@@ -125,11 +125,12 @@ export const UpdateRoom = async (image: string, prevState: unknown, roomId: stri
         },
       }),
       prisma.roomAmenities.createMany({
-        data: amenities.map((item) => ({ 
+        data: amenities.map((item) => ({
           roomId,
-          amenitiesId: item })),
+          amenitiesId: item,
+        })),
       }),
-    ])
+    ]);
   } catch (error) {
     console.log(error);
   }
@@ -143,12 +144,11 @@ export const CreateReserve = async (
   startDate: string,
   endDate: string,
   prevState: unknown,
-  formData: FormData,
-
+  formData: FormData
 ) => {
   // autentikasi user
   const session = await auth();
-  if(!session || !session.user || !session.user.email) redirect (`/masuk?redirect_url=/kamar/${roomId}`);
+  if (!session || !session.user || !session.user.email) redirect(`/masuk?redirect_url=/kamar/${roomId}`);
   const rawData = {
     name: formData.get("name"),
     phone: formData.get("phone"),
