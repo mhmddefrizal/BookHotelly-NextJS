@@ -61,7 +61,7 @@ const EditForm = ({ amenities, room }: { amenities: Amenities[]; room: RoomProps
   };
 
   // buat useActionState untuk menangani pengiriman form
-  const [state, formAction, isPending] = useActionState((_state, formData) => UpdateRoom(room.id, formData, image), null);
+  const [state, formAction, isPending] = useActionState((_state: unknown, formData: FormData) => UpdateRoom(room.id, formData, image), null);
 
   //   buat array berisi id amenities yang sudah dipilih
   const checkedAmenities = room.RoomAmenities.map((item) => item.amenitiesId);
