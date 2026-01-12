@@ -193,8 +193,8 @@ export const CreateReserve = async (
         data: {
           startDate: startDate,
           endDate: endDate,
-          price: room.price,
-          total: total,
+          price: total,
+          roomId: roomId,
           userId: session.user.id as string,
           Payment: {
             create: {
