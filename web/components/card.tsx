@@ -4,7 +4,7 @@ import { IoPeopleOutline } from "react-icons/io5";
 import { Room } from "@prisma/client";
 import { formatCurrency } from "@/lib/utils";
 
-const Card = ({room}: {room:Room}) => {
+const Card = ({ room }: { room: Room }) => {
   return (
     <div className="bg-white shadow-lg rounded-sm transition duration-100 hover:shadow-sm">
       <div className="h-[260px] w-auto rounded-t-sm relative">
@@ -23,7 +23,9 @@ const Card = ({room}: {room:Room}) => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <IoPeopleOutline />
-            <span>{room.capacity} {room.capacity === 1 ? "orang" : "orang"} Orang</span>
+            <span>
+              {room.capacity} {room.capacity === 1 ? "orang" : "orang"}{" "}
+            </span>
           </div>
           <Link href={`/kamar/${room.id}`} className="px-6 py-2.5 md:px-10 md:py-3 font-semibold text-white bg-blue-600 rounded-sm hover:bg-blue-900 transition duration-150">
             Pesan Sekarang!
