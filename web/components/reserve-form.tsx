@@ -63,7 +63,7 @@ const Reserveform = ({ room, disabledDate }: { room: RoomDetailProps; disabledDa
         </div>
         <div className="mb-4">
           <label className="block mb-2 text-sm font-medium text-gray-800">Nomor Telepon</label>
-          <input type="text" name="Telepon" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="No Telepon...." />
+          <input type="text" name="phone" className="bg-gray-50 p-3 border border-gray-200 rounded-sm w-full font-light" placeholder="No Telepon...." />
 
           <div aria-live="polite" aria-atomic="true">
             <p className="text-sm text-red-500 mt-2">{state?.error?.phone}</p>
