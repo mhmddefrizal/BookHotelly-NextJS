@@ -17,8 +17,8 @@ const Reserveform = ({ room, disabledDate }: { room: RoomDetailProps; disabledDa
 
   const handleDateChange = (dates: [Date | null, Date | null]) => {
     const [start, end] = dates;
-    if (start) setStartDate(start);
-    if (end) setEndDate(end);
+    setStartDate(start ?? StartDate);
+    setEndDate(end ?? EndDate);
   };
 
   // gunakan useActionState untuk menghubungkan form dengan action createReserve
